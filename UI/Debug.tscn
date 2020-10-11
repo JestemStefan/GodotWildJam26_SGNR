@@ -1,0 +1,16 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer"]
+margin_top = 13.0
+margin_right = 46.0
+margin_bottom = 27.0
+text = "DEBUG"

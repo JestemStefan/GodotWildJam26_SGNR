@@ -1,0 +1,22 @@
+[gd_scene format=2]
+
+[node name="Pause" type="WindowDialog"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_top = 40.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer"]
+margin_right = 93.0
+margin_bottom = 14.0
+size_flags_horizontal = 15
+size_flags_vertical = 15
+text = "GAME PAUSED"
