@@ -25,6 +25,7 @@ func _ready():
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
 
+
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta):
@@ -65,6 +66,7 @@ func process_input(delta):
 	# ----------------------------------
 
 	if Input.is_action_just_pressed("ui_fire"):
+		$Rotation_Helper/Gun/Rifle/AnimationPlayer.play("Fire")
 		if reticle_target != null:
 			# FIXME: do damage on specific target
 			reticle_target.queue_free()

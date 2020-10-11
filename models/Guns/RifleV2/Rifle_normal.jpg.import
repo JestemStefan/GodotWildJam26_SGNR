@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Gun_Albedo.jpg-4cbe58962ae5a7504c8990c11de62831.s3tc.stex"
-path.etc2="res://.import/Gun_Albedo.jpg-4cbe58962ae5a7504c8990c11de62831.etc2.stex"
+path.s3tc="res://.import/Rifle_normal.jpg-f14d4acb042d291b24eaf5a25d4cc2d3.s3tc.stex"
+path.etc2="res://.import/Rifle_normal.jpg-f14d4acb042d291b24eaf5a25d4cc2d3.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://models/Guns/Rifle/Gun_Albedo.jpg"
-dest_files=[ "res://.import/Gun_Albedo.jpg-4cbe58962ae5a7504c8990c11de62831.s3tc.stex", "res://.import/Gun_Albedo.jpg-4cbe58962ae5a7504c8990c11de62831.etc2.stex" ]
+source_file="res://models/Guns/RifleV2/Rifle_normal.jpg"
+dest_files=[ "res://.import/Rifle_normal.jpg-f14d4acb042d291b24eaf5a25d4cc2d3.s3tc.stex", "res://.import/Rifle_normal.jpg-f14d4acb042d291b24eaf5a25d4cc2d3.etc2.stex" ]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=1
 flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
