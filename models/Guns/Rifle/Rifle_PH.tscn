@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://models/Guns/Rifle/Rifle_Roughness.jpg" type="Texture" id=1]
-[ext_resource path="res://models/Guns/Rifle/Gun_Albedo.jpg" type="Texture" id=2]
-[ext_resource path="res://models/Guns/Rifle/Rifle_Normal.jpg" type="Texture" id=3]
+[ext_resource path="res://models/Guns/Rifle/Rifle_material.material" type="Material" id=1]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Rifle"
@@ -18,16 +16,9 @@ surfaces/0 = {
 "vertex_count": 2398
 }
 
-[sub_resource type="SpatialMaterial" id=2]
-albedo_texture = ExtResource( 2 )
-roughness_texture = ExtResource( 1 )
-normal_enabled = true
-normal_scale = -1.0
-normal_texture = ExtResource( 3 )
-
 [node name="Rifle_PH" type="Spatial"]
 
 [node name="Rifle" type="MeshInstance" parent="."]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, -0.220244, -0.301668 )
 mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+material/0 = ExtResource( 1 )

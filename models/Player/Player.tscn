@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/Player.gd" type="Script" id=1]
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=2]
-[ext_resource path="res://models/Guns/Rifle/Rifle_PH.tscn" type="PackedScene" id=3]
+[ext_resource path="res://models/Guns/RifleV2/Rifle.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 2.0
@@ -25,10 +25,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.525068 )
 fov = 50.0
 
 [node name="Gun" type="Spatial" parent="Rotation_Helper"]
-transform = Transform( 0.54163, 0, 0, 0, 0.54163, 0, 0, 0, 0.54163, 0.755613, -0.755375, -1.81298 )
+transform = Transform( 0.54163, 0, 0, 0, 0.54163, 0, 0, 0, 0.54163, 0.535966, -0.526165, -1.81298 )
 
-[node name="Rifle_PH" parent="Rotation_Helper/Gun" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.286564, -0.658851 )
+[node name="Rifle" parent="Rotation_Helper/Gun" instance=ExtResource( 3 )]
 
 [node name="RayCast" type="RayCast" parent="Rotation_Helper"]
 enabled = true
@@ -40,3 +39,5 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
+
+[editable path="Rotation_Helper/Gun/Rifle"]
