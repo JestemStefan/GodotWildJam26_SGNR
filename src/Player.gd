@@ -14,6 +14,11 @@ const MAX_SLOPE_ANGLE = 40
 var camera
 var rotation_helper
 
+# Target currently aiming at with the reticle
+var reticle_target
+
+onready var ray_cast: RayCast = $Rotation_Helper/RayCast
+
 var MOUSE_SENSITIVITY = 0.1
 
 func _ready():
@@ -25,6 +30,7 @@ func _ready():
 func _physics_process(delta):
 	process_input(delta)
 	process_movement(delta)
+	process_raycast(delta)
 
 func process_input(delta):
 
@@ -57,6 +63,11 @@ func process_input(delta):
 		if Input.is_action_just_pressed("move_jump"):
 			vel.y = JUMP_SPEED
 	# ----------------------------------
+
+	if Input.is_action_just_pressed("ui_fire"):
+		if reticle_target != null:
+			# FIXME: do damage on specific target
+			reticle_target.queue_free()
 
 	# ----------------------------------
 	# Capturing/Freeing the cursor
@@ -98,3 +109,11 @@ func _input(event):
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		rotation_helper.rotation_degrees = camera_rot
+
+func process_raycast(_delta):
+	reticle_target = null
+
+	if ray_cast.is_colliding():
+		var collider = ray_cast.get_collider()
+		if ! collider is StaticBody:
+			reticle_target = collider
