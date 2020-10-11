@@ -5,8 +5,8 @@ var ammo: int = 4;
 
 var status: Label;
 
-func set_heath(health):
-	self.health = health
+func set_heath(value):
+	health = value
 
 func _ready():
 	status = $Status/Label
