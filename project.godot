@@ -19,6 +19,10 @@ config/name="gwj-26"
 run/main_scene="res://levels/World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://src/Globals.gd"
+
 [input]
 
 move_forward={
