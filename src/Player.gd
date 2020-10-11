@@ -18,10 +18,12 @@ var rotation_helper
 var reticle_target
 
 onready var ray_cast: RayCast = $Rotation_Helper/RayCast
+onready var anim_player: AnimationPlayer = $Rotation_Helper/Gun/Rifle/AnimationPlayer
 
 var MOUSE_SENSITIVITY = 0.1
 
 func _ready():
+	change_animation("Idle")  #Start with idle animation
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
 
@@ -61,12 +63,13 @@ func process_input(delta):
 	# ----------------------------------
 	# Jumping
 	if is_on_floor():
+		
 		if Input.is_action_just_pressed("move_jump"):
 			vel.y = JUMP_SPEED
 	# ----------------------------------
 
 	if Input.is_action_just_pressed("ui_fire"):
-		$Rotation_Helper/Gun/Rifle/AnimationPlayer.play("Fire")
+		change_animation("Fire")
 		if reticle_target != null:
 			# FIXME: do damage on specific target
 			reticle_target.queue_free()
@@ -119,3 +122,13 @@ func process_raycast(_delta):
 		var collider = ray_cast.get_collider()
 		if ! collider is StaticBody:
 			reticle_target = collider
+
+func change_animation(anim_name:String):
+	match anim_name:
+		"Idle":
+			anim_player.set_speed_scale(1)
+			anim_player.play("Idle")
+		"Fire":
+			anim_player.set_speed_scale(2)
+			anim_player.play("Fire")
+	

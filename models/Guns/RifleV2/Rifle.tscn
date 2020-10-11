@@ -87,6 +87,7 @@ tracks/5/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1,
 [sub_resource type="Animation" id=4]
 resource_name = "Idle"
 length = 1.36667
+loop = true
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Rifle_Armature/Skeleton:gun")
 tracks/0/interp = 1
