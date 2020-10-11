@@ -6,6 +6,21 @@
 [sub_resource type="CapsuleShape" id=1]
 height = 2.0
 
+[sub_resource type="CylinderMesh" id=3]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 5.468
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.388235, 0.388235, 0.388235, 1 )
+roughness = 0.0
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 0.855, 3.817, 1.094 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.341176, 0.184314, 0, 1 )
+
 [sub_resource type="CapsuleMesh" id=2]
 mid_height = 2.0
 
@@ -20,6 +35,20 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 
 [node name="Camera" type="Camera" parent="Rotation_Helper"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.525068 )
+
+[node name="Gun" type="Spatial" parent="Rotation_Helper"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0 )
+
+[node name="Barrel" type="MeshInstance" parent="Rotation_Helper/Gun"]
+transform = Transform( 0.394571, 0, 0, 0, -6.42838e-08, -0.394571, 0, 0.394571, -6.42838e-08, 0.611989, 2.55968, -2.41227 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 6 )
+
+[node name="Handle" type="MeshInstance" parent="Rotation_Helper/Gun"]
+transform = Transform( 0.394571, 0, 0, 0, -6.42838e-08, -0.394571, 0, 0.394571, -6.42838e-08, 0.630121, 2.37052, -1.54664 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 2, 0 )
