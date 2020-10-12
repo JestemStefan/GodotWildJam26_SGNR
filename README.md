@@ -1,6 +1,6 @@
-# Game name
+# Game name (tbd)
 
-This is the game design document.
+This is the game design document for GDW aka [Godot Wild Jam 26](https://godotwildjam.com/)
 
 ## Story
 
@@ -22,14 +22,12 @@ Bread is alive :P
 
 ## Names
 
-(tbd)
-
-### Chef
+### Chef (tbd)
 
 - DoughSlayer
 - McLain (from Portal "Cake is a lie")
 
-### Player
+### Player (tbd)
 
 - breadorcist
 - bread**s**orcist
@@ -42,15 +40,18 @@ There are 3 levels with the last being a boss game.
 
 ## Weapons
 
-(tbd)
-
 ### Jelly gun
 
 Loading the gun with Jars and shooting jelly.
 
-## Rewards
+## Rewards (tbd)
+
+## Ammunition
 
 - Jelly Jars
+- Grenades (Pom Grenades)
 
-## Enemies
+## Enemies (tbd)
 
+- flying
+- ground
