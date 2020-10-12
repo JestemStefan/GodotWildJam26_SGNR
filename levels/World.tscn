@@ -63,4 +63,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.16545, 5.68835, 0 )
 enemies = [ ExtResource( 3 ), ExtResource( 3 ) ]
 
 [node name="SpawnPointFyling" parent="SpawnPointManager" instance=ExtResource( 2 )]
-enemies = [ ExtResource( 5 ) ]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0 )
+enemies = [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ) ]
