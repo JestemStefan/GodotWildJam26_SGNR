@@ -23,6 +23,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 [node name="Camera" type="Camera" parent="Rotation_Helper"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.525068 )
 fov = 50.0
+far = 200.0
 
 [node name="Gun" type="Spatial" parent="Rotation_Helper"]
 transform = Transform( 0.54163, 0, 0, 0, 0.54163, 0, 0, 0, 0.54163, 0.535966, -0.526165, -1.81298 )
@@ -31,7 +32,7 @@ transform = Transform( 0.54163, 0, 0, 0, 0.54163, 0, 0, 0, 0.54163, 0.535966, -0
 
 [node name="RayCast" type="RayCast" parent="Rotation_Helper"]
 enabled = true
-cast_to = Vector3( 0, 0, -10 )
+cast_to = Vector3( 0, 0, -100 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 2, 0 )
