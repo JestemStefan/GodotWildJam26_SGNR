@@ -15,7 +15,9 @@ func _update(delta):
 	pass
 
 func spawn_enemies(num: int):
+	var en:PackedScene
+	
 	for e in enemies:
-		pass
-		# FIXME: how to produce enemies?
-		# var enemy = load(e).instance()
+		en = e
+		var enemy = en.instance(PackedScene.GEN_EDIT_STATE_INSTANCE)
+		add_child(enemy)
