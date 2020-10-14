@@ -40,13 +40,16 @@ func _on_Timer_timeout():
 	get_new_path(player_position)
 
 func take_damage(damage_amount):
+	print("ouch!")
 	health -= damage_amount
+	
+	if health <= 0:
+		got_killed()
+	
 
-	if health > 0:
-		print(health)
-	else:
-		queue_free()
-
+func got_killed():
+	pass
+	
 func play_animation(name:String, anim_speed:float):
 	anim_player.play(name)
 	anim_player.set_speed_scale(anim_speed)

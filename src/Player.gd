@@ -149,7 +149,7 @@ func take_damage(damage_amount):
 	if health <= 0:
 		print([health, "You should be dead at this point"])
 		#TODO Gameover?
-		
+	HUD.set_heath(health)
 	print(health)
 	
 	
