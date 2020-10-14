@@ -18,8 +18,6 @@ func _physics_process(_delta):
 func take_damage(damage_amount):
 	health -= damage_amount
 
-	print_debug(health)
-
 	if health > 0:
 		print(health)
 	else:

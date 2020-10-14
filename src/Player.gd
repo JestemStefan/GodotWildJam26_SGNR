@@ -80,6 +80,7 @@ func process_input(delta):
 		process_raycast(delta)
 		change_animation("Fire")
 
+
 	# ----------------------------------
 	# Capturing/Freeing the cursor
 	if Input.is_action_just_pressed("ui_cancel"):
