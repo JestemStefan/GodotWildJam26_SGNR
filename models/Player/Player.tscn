@@ -42,5 +42,6 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
+[connection signal="animation_finished" from="Rotation_Helper/Gun/Rifle/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="Rotation_Helper/Gun/Rifle"]
