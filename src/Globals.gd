@@ -57,7 +57,7 @@ func load_new_scene(new_scene_path):
 	created_audio.clear()
 	
 	# Change scenes
-	get_tree().change_scene(new_scene_path)
+	var result = get_tree().change_scene(new_scene_path)
 
 
 func _process(_delta):
