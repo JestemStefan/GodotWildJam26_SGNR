@@ -41,7 +41,9 @@ func _on_Timer_timeout():
 
 func take_damage(damage_amount):
 	health -= damage_amount
-	
+
+	print_debug(health)
+
 	if health > 0:
 		print(health)
 	else:
