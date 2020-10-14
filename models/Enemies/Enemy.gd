@@ -6,7 +6,7 @@ var health = 100
 
 onready var player = get_tree().get_nodes_in_group("player")[0]
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Enemy is attracted to player by force
 	var me = global_transform.origin
 	var him = player.global_transform.origin

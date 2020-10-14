@@ -1,5 +1,7 @@
 extends KinematicBody
 
+var globals
+
 const GRAVITY = -24.8
 var vel = Vector3()
 const MAX_SPEED = 20
@@ -23,6 +25,8 @@ onready var anim_player: AnimationPlayer = $Rotation_Helper/Gun/Rifle/AnimationP
 var MOUSE_SENSITIVITY = 0.1
 
 func _ready():
+	globals = get_node("/root/Globals")
+	
 	change_animation("Idle")  #Start with idle animation
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
@@ -129,6 +133,8 @@ func change_animation(anim_name:String):
 			anim_player.set_speed_scale(1)
 			anim_player.play("Idle")
 		"Fire":
+			globals.play_sound("rifle_shot")
+
 			anim_player.set_speed_scale(2)
 			anim_player.play("Fire")
 	

@@ -24,20 +24,11 @@ var respawn_points = null
 # ------------------------------------
 # All of the audio files.
 
-# You will need to provide your own sound files.
-# One site I'd recommend is GameSounds.xyz. I'm using Sonniss' GDC Game Audio bundle for 2017.
-# The tracks I've used (with some minor editing) are as follows:
-#	Gamemaster audio gun sound pack:
-#		gun_revolver_pistol_shot_04,
-#		gun_semi_auto_rifle_cock_02,
-#		gun_submachine_auto_shot_00_automatic_preview_01
 var audio_clips = {
-	"pistol_shot":null, #preload("res://path_to_your_audio_here!")
-	"rifle_shot":null, #preload("res://path_to_your_audio_here!")
-	"gun_cock":null, #preload("res://path_to_your_audio_here!")
+	"ambient": preload("res://assets/audio/Breadventure_sketch_1.wav"),
+	"rifle_shot": preload("res://assets/audio/Gun_sfx_3.wav")
 }
 
-# The simple audio player scene
 const SIMPLE_AUDIO_PLAYER_SCENE = preload("res://UI/MonoAudioPlayer.tscn")
 
 # A list to hold all of the created audio nodes
@@ -123,16 +114,15 @@ func set_debug_display(display_on: bool):
 func play_sound(sound_name, loop_sound=false, sound_position=null):
 	# If we have a audio clip with with the name sound_name
 	if audio_clips.has(sound_name):
-		# Make a new simple audio player and set it's looping variable to the loop_sound
+		var audio_resource = audio_clips[sound_name]
+
 		var new_audio = SIMPLE_AUDIO_PLAYER_SCENE.instance()
 		new_audio.should_loop = loop_sound
 		
-		# Add it as a child and add it to created_audio
 		add_child(new_audio)
 		created_audio.append(new_audio)
 		
-		# Send the newly created simple audio player the audio stream and sound position
-		new_audio.play_sound(audio_clips[sound_name], sound_position)
+		new_audio.play_sound(audio_resource, sound_position)
 	
 	# If we do not have an audio clip with the name sound_name, print a error message
 	else:
