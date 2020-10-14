@@ -23,6 +23,8 @@ var canFire: bool = true
 onready var ray_cast: RayCast = $Rotation_Helper/RayCast
 onready var anim_player: AnimationPlayer = $Rotation_Helper/Gun/Rifle/AnimationPlayer
 
+onready var b_decal = preload("res://ammunition/BulletDecal.tscn")
+
 var MOUSE_SENSITIVITY = 0.1
 
 func _ready():
@@ -129,6 +131,8 @@ func process_raycast(_delta):
 		if collider.has_method("take_damage"):
 			collider.take_damage(40)
 
+		add_bullet_decal()
+
 func change_animation(anim_name:String):
 	match anim_name:
 		"Idle":
@@ -146,3 +150,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	match anim_name:
 		"Fire":
 			canFire = true
+
+
+func add_bullet_decal():
+	var b = b_decal.instance()
+	ray_cast.get_collider().add_child(b)
+	b.global_transform.origin = ray_cast.get_collision_point()
+	b.look_at(ray_cast.get_collision_point() + ray_cast.get_collision_normal(),Vector3.UP)
