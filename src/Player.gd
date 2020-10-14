@@ -18,6 +18,7 @@ var rotation_helper
 
 # Target currently aiming at with the reticle
 var reticle_target
+var canFire: bool = true
 
 onready var ray_cast: RayCast = $Rotation_Helper/RayCast
 onready var anim_player: AnimationPlayer = $Rotation_Helper/Gun/Rifle/AnimationPlayer
@@ -72,7 +73,8 @@ func process_input(delta):
 			vel.y = JUMP_SPEED
 	# ----------------------------------
 
-	if Input.is_action_just_pressed("ui_fire"):
+	if Input.is_action_just_pressed("ui_fire") and canFire:
+		canFire = false
 		process_raycast(delta)
 		change_animation("Fire")
 
@@ -138,3 +140,9 @@ func change_animation(anim_name:String):
 			anim_player.set_speed_scale(2)
 			anim_player.play("Fire")
 	
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	match anim_name:
+		"Fire":
+			canFire = true
