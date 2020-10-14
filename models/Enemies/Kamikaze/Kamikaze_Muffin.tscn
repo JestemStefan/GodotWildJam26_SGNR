@@ -86,6 +86,7 @@ material = SubResource( 8 )
 
 [sub_resource type="Animation" id=10]
 length = 1.5
+step = 0.01
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:candle")
 tracks/0/interp = 1
@@ -227,7 +228,7 @@ skin = SubResource( 2 )
 material/0 = ExtResource( 1 )
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( 1, 0, -2.84217e-14, 0, 1, 0, 2.84217e-14, 0, 1, 0, 3.98794, 0 )
+transform = Transform( 2, 0, -5.68434e-14, 0, 2, 0, 5.68434e-14, 0, 2, 0, 1.75707, 0 )
 bone_name = "candle"
 
 [node name="Particles" type="Particles" parent="Armature/Skeleton/BoneAttachment"]
