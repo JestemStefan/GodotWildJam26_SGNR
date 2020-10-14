@@ -11,6 +11,6 @@ func set_heath(value):
 func _ready():
 	status = $Status/Label
 
-func _process(delta):
+func _process(_delta):
 	status.text = "Health: " + str(health) + "\n" + "Ammo: " + str(ammo) + " / " + "10";
 
