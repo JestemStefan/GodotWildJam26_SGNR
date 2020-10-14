@@ -9,7 +9,7 @@ var path_node = 0
 var player_position: Vector3
 var dist2player: float
 
-onready var nav: Navigation = get_parent()
+onready var nav: Navigation = get_tree().get_nodes_in_group("navigation")[0]
 onready var player: KinematicBody = get_tree().get_nodes_in_group("player")[0]
 onready var anim_player: AnimationPlayer = $AnimationPlayer
 

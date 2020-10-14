@@ -5,7 +5,7 @@ var path_node = 0
 
 var speed = 10
 
-onready var nav: Navigation = get_parent()
+onready var nav: Navigation = get_tree().get_nodes_in_group("navigation")[0]
 onready var player:KinematicBody = get_tree().get_nodes_in_group("player")[0]
 
 func _ready():
