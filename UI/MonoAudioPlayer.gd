@@ -17,7 +17,7 @@ func _ready():
 	globals = get_node("/root/Globals")
 
 
-func play_sound(audio_stream, position=null):
+func play_sound(audio_stream, _position=null):
 	# Based on the passed in sound, set the audio stream and then play it.
 	# If we do not have an sound stream with that name, then simply destroy ourselves.
 	#
