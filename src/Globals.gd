@@ -69,7 +69,7 @@ func load_new_scene(new_scene_path):
 	get_tree().change_scene(new_scene_path)
 
 
-func _process(delta):
+func _process(_delta):
 	# FIXME: Pausing blocks game and dialog is too small
 	if false && Input.is_action_just_pressed("ui_pause"):
 		if popup == null:
