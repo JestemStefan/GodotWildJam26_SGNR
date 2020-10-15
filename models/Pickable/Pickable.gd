@@ -1,4 +1,5 @@
 extends KinematicBody
+class_name PickUp
 
 export var launch_direction: Vector3
 const GRAVITY = -5
@@ -15,7 +16,7 @@ func _ready():
 	$AnimationPlayer.play("Rotate")
 	
 	randomize()
-	var random_vector = Vector3(rand_range(-1,1),0,rand_range(-1,1))
+	var random_vector = Vector3(rand_range(-1,1),rand_range(-0.5,0.5),rand_range(-1,1))
 	move_dir = launch_direction + random_vector
 	
 	
@@ -34,12 +35,13 @@ func _physics_process(delta):
 		move_dir = global_transform.origin.direction_to(player.global_transform.origin)
 		
 		if distance2Player < 10:
-			player.gain_ammo(1)
+			pick_up_effect()
 			call_deferred("free")
 		
 	move_and_slide(move_dir * 25, Vector3.UP, false)
 		
-		
+func pick_up_effect():
+	pass
 		
 		
 		
