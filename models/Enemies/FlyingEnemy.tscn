@@ -2,14 +2,16 @@
 
 [ext_resource path="res://models/Enemies/FlyingEnemy.gd" type="Script" id=1]
 
-[sub_resource type="SphereMesh" id=1]
+[sub_resource type="CylinderMesh" id=1]
+height = 0.1
 
 [sub_resource type="Skin" id=2]
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.654902, 0.156863, 0.933333, 1 )
+albedo_color = Color( 0.941176, 0.835294, 0.141176, 1 )
 
-[sub_resource type="SphereShape" id=4]
+[sub_resource type="CylinderShape" id=4]
+height = 0.1
 
 [node name="Enemy" type="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1525, 1.44714, 0 )
