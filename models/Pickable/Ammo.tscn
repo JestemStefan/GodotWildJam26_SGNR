@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://models/Pickable/Ammo_material.material" type="Material" id=1]
+[ext_resource path="res://models/Pickable/Pickable.gd" type="Script" id=2]
+
+[sub_resource type="SphereShape" id=1]
+radius = 2.0
+
+[sub_resource type="CylinderMesh" id=2]
+material = ExtResource( 1 )
+top_radius = 0.3
+bottom_radius = 0.3
+height = 1.0
+radial_segments = 16
+rings = 1
+
+[sub_resource type="Animation" id=3]
+resource_name = "Rotate"
+length = 4.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Mesh:translation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.75, -0.25, 0, 0.92, 0.00284141, 1.25, -0.85, -0.00333226, 0.87, -0.00333226, 0.75, -0.86, 0.00925326, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mesh:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
+}
+
+[node name="Ammo" type="KinematicBody"]
+script = ExtResource( 2 )
+launch_direction = Vector3( 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+shape = SubResource( 1 )
+
+[node name="Mesh" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Mesh"]
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0.178811, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Rotate = SubResource( 3 )
