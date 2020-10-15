@@ -22,11 +22,11 @@ func spawn_enemies():
 	if enemies_left <= 0:
 		return
 
-	print_debug("New wave coming ...")
+	#print_debug("New wave coming ...")
 	
 	for items in range(wave_size):
 		if enemies_left <= 0:
-			print_debug("No more enemies left")
+			#print_debug("No more enemies left")
 			break
 
 		enemies.shuffle()

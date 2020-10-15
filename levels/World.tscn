@@ -46,18 +46,17 @@ transform = Transform( 0.828178, 0.380193, -0.411795, 0, 0.734737, 0.678352, 0.5
 shadow_enabled = true
 
 [node name="SpawnPointManager" parent="." instance=ExtResource( 4 )]
-every_ticks = 240
 
 [node name="SpawnPointSingle" parent="SpawnPointManager" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.092, 0.1, -10.878 )
-percentage = 300
-wave_size = 4
+percentage = 60
+wave_size = 1
 enemies = [ ExtResource( 5 ) ]
 
 [node name="SpawnPointSingle2" parent="SpawnPointManager" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0444, 0.256559, 7.32409 )
-percentage = 300
-wave_size = 3
+percentage = 40
+wave_size = 1
 enemies = [ ExtResource( 5 ) ]
 
 [node name="Navigation" type="Navigation" parent="." groups=[
@@ -131,3 +130,4 @@ shape = SubResource( 9 )
 
 [node name="Kamikaze_Muffin" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23.849 )
+visible = false
