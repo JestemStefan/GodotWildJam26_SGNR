@@ -40,14 +40,17 @@ func _on_Timer_timeout():
 	get_new_path(player_position)
 
 func take_damage(damage_amount):
-	print("ouch!")
 	health -= damage_amount
 	
 	if health <= 0:
 		got_killed()
+		spawn_reward()
 	
 
 func got_killed():
+	pass
+	
+func spawn_reward():
 	pass
 	
 func play_animation(name:String, anim_speed:float):

@@ -1,6 +1,7 @@
 extends "res://models/Enemies/Enemy_class.gd"
 
 onready var blast_area = preload("res://models/CollisionShapes/Blast_area.tscn")
+onready var ammo = preload("res://models/Pickable/Ammo.tscn")
 
 var isExploding : bool = false
 
@@ -25,6 +26,11 @@ func explode():
 	explosion.global_transform.origin = global_transform.origin
 	get_tree().get_current_scene().add_child(explosion)
 			
+			
+func spawn_reward():
+	var reward = ammo.instance()
+	reward.global_transform.origin = global_transform.origin
+	get_tree().get_current_scene().add_child(reward)
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	match anim_name:

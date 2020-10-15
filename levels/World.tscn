@@ -133,4 +133,4 @@ shape = SubResource( 9 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23.849 )
 
 [node name="Ammo" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.4619 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25816, -17.4619 )
