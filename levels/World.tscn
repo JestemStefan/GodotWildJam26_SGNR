@@ -46,7 +46,7 @@ transform = Transform( 0.828178, 0.380193, -0.411795, 0, 0.734737, 0.678352, 0.5
 shadow_enabled = true
 
 [node name="SpawnPointManager" parent="." instance=ExtResource( 4 )]
-every_ticks = 60
+every_ticks = 240
 
 [node name="SpawnPointSingle" parent="SpawnPointManager" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.092, 0.1, -10.878 )
