@@ -2,7 +2,6 @@
 
 [ext_resource path="res://models/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Managers/SpawnPoint.tscn" type="PackedScene" id=2]
-[ext_resource path="res://models/Pickable/Ammo.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Managers/SpawnPointManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://models/Enemies/Kamikaze/Kamikaze_Muffin.tscn" type="PackedScene" id=5]
 [ext_resource path="res://models/Enemies/FlyingEnemy.tscn" type="PackedScene" id=6]
@@ -132,6 +131,3 @@ shape = SubResource( 9 )
 
 [node name="Kamikaze_Muffin" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23.849 )
-
-[node name="Ammo" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.4619 )
