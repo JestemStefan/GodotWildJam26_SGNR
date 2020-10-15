@@ -16,10 +16,14 @@ func _ready():
 	enemies_left = capacity
 
 
+func is_depleted() -> bool:
+	return enemies_left <= 0
+
+
 func spawn_enemies():
 	var en:PackedScene
 
-	if enemies_left <= 0:
+	if is_depleted():
 		return
 
 	#print_debug("New wave coming ...")
@@ -34,7 +38,7 @@ func spawn_enemies():
 		var enemy = en.instance(PackedScene.GEN_EDIT_STATE_INSTANCE)
 
 		#Spawn enemy in a position of spawn point
-		enemy.global_transform.origin = global_transform.origin
+		enemy.global_transform.origin = global_transform.origin + Vector3(rand_range(0, 1), 0, rand_range(0,1))
 
 		nav.add_child(enemy)
 
