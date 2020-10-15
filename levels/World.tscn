@@ -51,11 +51,13 @@ every_ticks = 240
 [node name="SpawnPointSingle" parent="SpawnPointManager" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.092, 0.1, -10.878 )
 percentage = 300
+wave_size = 4
 enemies = [ ExtResource( 5 ) ]
 
 [node name="SpawnPointSingle2" parent="SpawnPointManager" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0444, 0.256559, 7.32409 )
 percentage = 300
+wave_size = 3
 enemies = [ ExtResource( 5 ) ]
 
 [node name="Navigation" type="Navigation" parent="." groups=[

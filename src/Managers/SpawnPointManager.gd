@@ -10,10 +10,10 @@ func _process(delta):
 	current_tick += 1
 	if (current_tick > every_ticks):
 		current_tick = 0
-		spawn_enemies(1)
+		spawn_enemies()
 	
 
-func spawn_enemies(num: int):
+func spawn_enemies():
 	for c in get_children():
 		if c is SpawnPoint:
-			c.spawn_enemies(num)
+			c.spawn_enemies()
