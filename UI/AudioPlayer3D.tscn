@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/AudioPlayer3D.gd" type="Script" id=1]
+
+[node name="AudioPlayer3D" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Audio_Stream_Player" type="AudioStreamPlayer3D" parent="."]
+unit_db = 10.0
+unit_size = 5.0

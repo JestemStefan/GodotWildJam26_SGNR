@@ -6,15 +6,32 @@ var health = 100
 export var max_flap:int = 10
 var flap:int = 0
 
+onready var globals = get_node("/root/Globals")
 
 onready var player = get_tree().get_nodes_in_group("player")[0]
+onready var audio_player_3d = $AudioPlayer3D
+
+var towards: bool = true
+
+func _ready():
+	globals.play_sound('alien', false, audio_player_3d)
+
 
 func _physics_process(delta):
-	# Enemy is attracted to player
-	var me = global_transform.origin
-	var him = player.global_transform.origin
+	var me:Vector3 = global_transform.origin
+	var him:Vector3 = player.global_transform.origin
 
-	var dir = (him - me).normalized() * speed
+	var direction:Vector3 = him - me
+	var distance = direction.length()
+
+	if distance > 10:
+		towards = true
+
+	var dir = direction.normalized() * speed
+
+	if !towards:
+		dir = -dir
+
 	add_force(dir, Vector3.ZERO)
 
 	if flap > 0:

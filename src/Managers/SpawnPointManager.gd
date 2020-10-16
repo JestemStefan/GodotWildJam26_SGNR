@@ -24,9 +24,10 @@ func _ready():
 	for c in get_children():
 		if c is SpawnPoint:
 			var s:SpawnPoint = c
-			spawn_points.push_back(s)
-			percentages.push_back(s.percentage)
-			total_percentages += s.percentage
+			if s.visible:
+				spawn_points.push_back(s)
+				percentages.push_back(s.percentage)
+				total_percentages += s.percentage
 
 func _on_Timer_timeout():
 	# We select one SpawnPoint based on its percentage
@@ -35,7 +36,7 @@ func _on_Timer_timeout():
 	for i in range(spawn_points.size()):
 		var s:SpawnPoint = spawn_points[i]
 
-		if s.is_depleted():
+		if !s.visible || s.is_depleted():
 			# Skip when depleted
 			continue
 

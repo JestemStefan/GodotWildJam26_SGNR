@@ -26,10 +26,12 @@ var respawn_points = null
 
 var audio_clips = {
 	"ambient": preload("res://assets/audio/Breadventure_sketch_1.wav"),
-	"rifle_shot": preload("res://assets/audio/Gun_sfx_3.wav")
+	"rifle_shot": preload("res://assets/audio/Gun_sfx_3.wav"),
+	"alien": preload("res://assets/audio/test-alien.ogg"),
 }
 
 const SIMPLE_AUDIO_PLAYER_SCENE = preload("res://UI/MonoAudioPlayer.tscn")
+const AUDIO_PLAYER_SCENE_3D = preload("res://UI/AudioPlayer3D.tscn")
 
 # A list to hold all of the created audio nodes
 var created_audio = []
@@ -114,14 +116,27 @@ func set_debug_display(display_on: bool):
 func play_sound(sound_name, loop_sound=false, sound_position=null):
 	# If we have a audio clip with with the name sound_name
 	if audio_clips.has(sound_name):
+		var manage_audio = true
+
 		var audio_resource = audio_clips[sound_name]
 
-		var new_audio = SIMPLE_AUDIO_PLAYER_SCENE.instance()
+		var new_audio
+		if sound_position == null:
+			new_audio = SIMPLE_AUDIO_PLAYER_SCENE.instance()
+		elif sound_position is Vector3:
+			new_audio = AUDIO_PLAYER_SCENE_3D.instance()
+		elif sound_position is Spatial:
+			manage_audio = false
+			new_audio = sound_position
+		else:
+			print("ERROR: sound_position not implemented")
+
 		new_audio.should_loop = loop_sound
-		
-		add_child(new_audio)
-		created_audio.append(new_audio)
-		
+
+		if manage_audio:
+			add_child(new_audio)
+			created_audio.append(new_audio)
+
 		new_audio.play_sound(audio_resource, sound_position)
 	
 	# If we do not have an audio clip with the name sound_name, print a error message

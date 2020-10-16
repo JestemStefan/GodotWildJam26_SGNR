@@ -1,5 +1,7 @@
 extends Spatial
 
+class_name MonoAudioPlayer
+
 # The audio player node.
 var audio_node = null
 # A variable to track whether or not we should loop
