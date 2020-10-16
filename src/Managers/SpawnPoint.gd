@@ -36,10 +36,12 @@ func spawn_enemies():
 		enemies.shuffle()
 		en = enemies[0]
 		var enemy = en.instance(PackedScene.GEN_EDIT_STATE_INSTANCE)
-
-		#Spawn enemy in a position of spawn point
-		enemy.global_transform.origin = global_transform.origin + Vector3(rand_range(0, 1), 0, rand_range(0,1))
-
+		
 		nav.add_child(enemy)
+		
+		#Spawn enemy in a position of spawn point
+		enemy.global_transform.origin = get_global_transform().origin + Vector3(rand_range(0, 1), 0, rand_range(0,1))
+
+		
 
 		enemies_left -= 1

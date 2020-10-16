@@ -150,7 +150,6 @@ func take_damage(damage_amount):
 		print([health, "You should be dead at this point"])
 		#TODO Gameover?
 	HUD.set_heath(health)
-	print(health)
 	
 	
 func heal(hp_amount):
@@ -159,7 +158,6 @@ func heal(hp_amount):
 		health = 100
 	
 	HUD.set_heath(health)
-	print(health)
 
 func gain_ammo(ammo_amount):
 	ammo += ammo_amount
@@ -201,4 +199,4 @@ func add_bullet_decal():
 	var b = b_decal.instance()
 	ray_cast.get_collider().add_child(b)
 	b.global_transform.origin = ray_cast.get_collision_point()
-	b.look_at(ray_cast.get_collision_point() + ray_cast.get_collision_normal(),Vector3.UP)
+	b.look_at(ray_cast.get_collision_point() + ray_cast.get_collision_normal(), Vector3(0.3,0.3,0.3))
