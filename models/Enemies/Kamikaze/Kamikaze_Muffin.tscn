@@ -183,6 +183,8 @@ height = 0.5
 [node name="Kamikaze_Muffin" type="KinematicBody" groups=[
 "Enemy",
 ]]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource( 3 )
 health = 10
 speed = 15

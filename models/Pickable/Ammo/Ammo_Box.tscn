@@ -48,7 +48,8 @@ tracks/1/keys = {
 }
 
 [node name="Ammo_Box" type="KinematicBody"]
-collision_layer = 0
+input_ray_pickable = false
+collision_layer = 8
 script = ExtResource( 2 )
 launch_direction = Vector3( 0, 1.5, 0 )
 

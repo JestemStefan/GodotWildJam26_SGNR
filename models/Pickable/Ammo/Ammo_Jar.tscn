@@ -48,6 +48,8 @@ tracks/1/keys = {
 }
 
 [node name="Ammo_Jar" type="KinematicBody"]
+input_ray_pickable = false
+collision_layer = 8
 script = ExtResource( 2 )
 launch_direction = Vector3( 0, 1.5, 0 )
 

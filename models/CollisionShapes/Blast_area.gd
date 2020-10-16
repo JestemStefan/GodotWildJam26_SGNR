@@ -3,16 +3,16 @@ extends Area
 export var AoE_damage: int
 
 var hasExploded:bool = false
+onready var particle_smoke: Particles = $Smoke
+onready var timer: Timer = $Timer
 
 func _ready():
-	$Smoke.set_emitting(true)
+	particle_smoke.set_emitting(true)
+	timer.start(1)
 	
 	
 func _physics_process(delta):
-	if hasExploded:
-		if !$Smoke.emitting:
-			call_deferred("free")
-	else:
+	if !hasExploded:
 		find_explosion_victims()
 		
 
@@ -21,6 +21,11 @@ func find_explosion_victims():
 	
 	if victims.size() > 0:
 		hasExploded = true
+		timer.start(1)
 		for victim in victims:
 			if victim.has_method("take_damage"):
 				victim.take_damage(AoE_damage)
+
+
+func _on_Timer_timeout():
+	call_deferred("free")
