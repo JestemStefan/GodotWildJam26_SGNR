@@ -5,7 +5,7 @@
 [ext_resource path="res://src/Managers/SpawnPoint.gd" type="Script" id=3]
 [ext_resource path="res://src/Managers/SpawnPointManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://models/Enemies/Kamikaze/Kamikaze_Muffin.tscn" type="PackedScene" id=5]
-[ext_resource path="res://models/Enemies/FlyingEnemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://models/Enemies/Flyer/FlyingEnemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://levels/World.gd" type="Script" id=7]
 
 [sub_resource type="NavigationMesh" id=1]
