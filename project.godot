@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="gwj-26"
-run/main_scene="res://levels/World.tscn"
+run/main_scene="res://levels/Arena_Level.tscn"
 config/icon="res://icon.png"
 
 [autoload]
