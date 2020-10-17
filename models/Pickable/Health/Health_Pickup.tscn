@@ -1,14 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://models/Pickable/Ammo_material.material" type="Material" id=1]
 [ext_resource path="res://models/Pickable/Health/Health_Pickup.gd" type="Script" id=2]
-
-[sub_resource type="CubeMesh" id=1]
-material = ExtResource( 1 )
-size = Vector3( 1.5, 0.5, 2 )
+[ext_resource path="res://assets/3D/Pickables/Health_Pickup_Mesh.tscn" type="PackedScene" id=3]
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 0.742947, 0.5, 1 )
+extents = Vector3( 0.617047, 0.5, 0.480543 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "Rotate"
@@ -46,9 +42,8 @@ launch_direction = Vector3( 0, 1.5, 0 )
 [node name="Mesh" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Mesh"]
-mesh = SubResource( 1 )
-material/0 = null
+[node name="Health_Pickup" parent="Mesh" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 1, -1.73205, 0, 1.73205, 1, 0, -0.246696, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
