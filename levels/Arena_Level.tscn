@@ -1,8 +1,27 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://models/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://models/Arena/FoodProcessor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://models/Arena/Table.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Managers/SpawnPointManager.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Managers/SpawnPoint.tscn" type="PackedScene" id=7]
+[ext_resource path="res://models/Enemies/Kamikaze/Kamikaze_Muffin.tscn" type="PackedScene" id=8]
+[ext_resource path="res://models/Enemies/Flyer/FlyingEnemy.tscn" type="PackedScene" id=9]
+
+[sub_resource type="NavigationMesh" id=2]
+vertices = PoolVector3Array( 3.4, 1.33555, -36.7528, 3.4, 1.33555, -43.9528, -5.9, 1.33555, -43.9528, -5.9, 1.33555, -36.4528, -32, 0.0355453, -13.3528, -33.8, 0.0355453, -7.65281, -34.4, 0.0355453, -4.05281, -29, 0.0355453, -19.0528, 3.4, 1.33555, -36.7528, -5.9, 1.33555, -36.4528, -5.9, 1.33555, -34.3528, 3.7, 1.33555, -34.3528, -32, 0.0355453, 13.3472, -6.5, 0.0355453, 34.0472, 16.6, 0.0355453, 30.4472, 34.3, 0.0355453, -4.95281, 19.6, 0.0355453, -28.6528, -16.1, 0.0355453, -30.7528, -6.5, 1.33555, -33.7528, -10.1, 0.0355453, -33.1528, -16.1, 0.0355453, -30.7528, -8.1, 0.0355453, -33.2528, -7.7, 0.0355453, -33.5528, 3.7, 1.33555, -34.3528, -5.9, 1.33555, -34.3528, -6.5, 1.33555, -33.7528, -32, 0.0355453, 13.3472, -29, 0.0355453, 19.0472, -26.6, 0.0355453, 22.3472, -20, 0.0355453, 28.3472, -12.8, 0.0355453, 32.2472, -6.5, 0.0355453, 34.0472, 14.2, 0.0355453, -31.6528, 9.1, 0.0355453, -33.4528, 3.7, 1.33555, -34.3528, -6.5, 1.33555, -33.7528, -16.1, 0.0355453, -30.7528, 19.6, 0.0355453, -28.6528, 5.05, 0.0355453, -34.1278, -8.1, 0.0355453, -33.2528, -6.18798, 1.33555, -31.9696, -8.03, 0.0355453, -31.9828, 2.78209, 1.33555, -31.9637, 4.6241, 0.0355453, -31.9505, 11.8122, 0.0355453, -30.1578, 22, 0.0355453, 26.8472, 26.8, 0.0355453, 22.0472, 30.1, 0.0355453, 17.2472, 4.6, 0.0355453, 34.3472, 9.1, 0.0355453, 33.4472, 16.6, 0.0355453, 30.4472, -6.5, 0.0355453, 34.0472, 28.6, 0.0355453, -19.6528, 24.7, 0.0355453, -24.4528, 19.6, 0.0355453, -28.6528, 34.3, 0.0355453, -4.95281, 31.9, 0.0355453, -13.6528, 30.1, 0.0355453, 17.2472, 33.1, 0.0355453, 10.3472, 34.3, 0.0355453, 4.94719, 34.3, 0.0355453, -4.95281, 16.6, 0.0355453, 30.4472, 22, 0.0355453, 26.8472, -16.1, 0.0355453, -30.7528, -22.4, 0.0355453, -26.5528, -29, 0.0355453, -19.0528, -34.4, 0.0355453, -4.05281, -34.1, 0.0355453, 6.14719, -32, 0.0355453, 13.3472 )
+polygons = [ PoolIntArray( 1, 0, 2 ), PoolIntArray( 2, 0, 3 ), PoolIntArray( 5, 4, 6 ), PoolIntArray( 6, 4, 7 ), PoolIntArray( 9, 8, 10 ), PoolIntArray( 10, 8, 11 ), PoolIntArray( 13, 12, 14 ), PoolIntArray( 14, 12, 15 ), PoolIntArray( 15, 12, 16 ), PoolIntArray( 16, 12, 17 ), PoolIntArray( 18, 21, 22 ), PoolIntArray( 22, 21, 19 ), PoolIntArray( 19, 21, 20 ), PoolIntArray( 25, 24, 23 ), PoolIntArray( 27, 26, 28 ), PoolIntArray( 28, 26, 29 ), PoolIntArray( 29, 26, 30 ), PoolIntArray( 30, 26, 31 ), PoolIntArray( 36, 44, 37 ), PoolIntArray( 37, 44, 32 ), PoolIntArray( 32, 44, 33 ), PoolIntArray( 33, 43, 38 ), PoolIntArray( 38, 43, 34 ), PoolIntArray( 34, 42, 35 ), PoolIntArray( 35, 40, 39 ), PoolIntArray( 39, 41, 36 ), PoolIntArray( 36, 40, 44 ), PoolIntArray( 44, 43, 33 ), PoolIntArray( 43, 42, 34 ), PoolIntArray( 42, 40, 35 ), PoolIntArray( 40, 41, 39 ), PoolIntArray( 41, 40, 36 ), PoolIntArray( 40, 42, 44 ), PoolIntArray( 44, 42, 43 ), PoolIntArray( 47, 46, 45 ), PoolIntArray( 49, 48, 50 ), PoolIntArray( 50, 48, 51 ), PoolIntArray( 53, 52, 54 ), PoolIntArray( 54, 52, 56 ), PoolIntArray( 54, 56, 55 ), PoolIntArray( 58, 57, 59 ), PoolIntArray( 59, 57, 60 ), PoolIntArray( 60, 57, 62 ), PoolIntArray( 60, 62, 61 ), PoolIntArray( 64, 63, 65 ), PoolIntArray( 65, 63, 66 ), PoolIntArray( 66, 63, 67 ), PoolIntArray( 67, 63, 68 ) ]
+cell/height = 0.1
+agent/max_climb = 1.5
+agent/max_slope = 60.0
+
+[sub_resource type="CylinderMesh" id=1]
+top_radius = 35.0
+bottom_radius = 35.0
+height = 5.0
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 10, 2, 13 )
 
 [node name="Arena_Level" type="Spatial"]
 
@@ -18,3 +37,50 @@ shadow_enabled = true
 
 [node name="FoodProcessor" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, -39.1677 )
+
+[node name="OvenDoors" parent="FoodProcessor" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.4, 1.31814, 14.2193, -7.28209 )
+
+[node name="Knob" parent="FoodProcessor" index="7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04626, 15.2604, -5.1814 )
+
+[node name="Navigation" type="Navigation" parent="." groups=[
+"navigation",
+]]
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+navmesh = SubResource( 2 )
+
+[node name="Table" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.66445, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="OvenFloor" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25624, 0.171871, -38.0528 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="SpawnPointManager" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.945948, 1.57241, -39.3722 )
+
+[node name="Muffins One" parent="SpawnPointManager" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.17302, 0.0999999, -2.16008 )
+percentage = 60
+wave_size = 1
+enemies = [ ExtResource( 8 ) ]
+
+[node name="Muffins Two" parent="SpawnPointManager" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59312, 0.256559, -1.30457 )
+percentage = 40
+wave_size = 4
+enemies = [ ExtResource( 8 ) ]
+
+[node name="Flyers" parent="SpawnPointManager" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17612, 9.20463, -3.09511 )
+percentage = 10
+capacity = 4
+wave_size = 1
+enemies = [ ExtResource( 9 ) ]
+
+[editable path="FoodProcessor"]
