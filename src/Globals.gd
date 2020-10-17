@@ -2,6 +2,50 @@ extends Node
 
 const MAIN_MENU_PATH = "res://levels/Main.tscn"
 
+var settings = {
+	"game": {
+		"sound": {
+			"ambient": true,
+			"soundfx": true,
+		},
+		"enemies": {
+			"muffins": {
+				"enabled": false,
+				"number": 100,
+			},
+			"flyers": {
+				"enabled": false,
+				"number": 10,
+			},
+		}
+	},
+	"credits": {
+		"names": [
+			"A",
+			"B",
+			"C"
+		]
+	}
+}
+
+func get_value(path):
+	var p = settings
+	var el = path.split("/")
+	for e in el:
+		p = p[e]
+	return p
+
+func set_value(path:String, value):
+	var p = settings
+	var el = path.split("/")
+
+	var i_last = el.size()-1
+	var last = el[i_last]
+	el.remove(i_last)
+	for e in el:
+		p = p[e]
+
+	p[last] = value
 
 # ------------------------------------
 # All of the GUI/UI related variables
@@ -128,6 +172,12 @@ func set_debug_display(display_on: bool):
 
 
 func play_sound(sound_name, loop_sound=false, sound_position=null):
+	if !get_value("game/sound/ambient") && loop_sound:
+		return
+
+	if !get_value("game/sound/soundfx") && !loop_sound:
+		return
+
 	# If we have a audio clip with with the name sound_name
 	if audio_clips.has(sound_name):
 		var manage_audio = true
