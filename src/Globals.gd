@@ -79,7 +79,8 @@ func _process(_delta):
 
 			popup.connect("resume", self, "popup_closed")
 			popup.connect("popup_hide", self, "popup_closed")
-			popup.connect("quit", self, "popup_quit")
+			popup.connect("main", self, "popup_quit")
+			popup.connect("quit", self, "quit")
 
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
@@ -107,6 +108,9 @@ func popup_quit():
 	# Go back to the title screen scene
 	load_new_scene(MAIN_MENU_PATH)
 
+func quit():
+	get_tree().quit()
+
 
 func set_debug_display(display_on: bool):
 	# If we are turning off the debug display
@@ -131,6 +135,7 @@ func play_sound(sound_name, loop_sound=false, sound_position=null):
 		var audio_resource = audio_clips[sound_name]
 
 		var new_audio
+
 		if sound_position == null:
 			new_audio = SIMPLE_AUDIO_PLAYER_SCENE.instance()
 		elif sound_position is Vector3:

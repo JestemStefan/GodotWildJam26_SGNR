@@ -51,10 +51,14 @@ Left click : Fire
 ....
 "
 
-[node name="Start" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 540.0
 margin_right = 1021.0
 margin_bottom = 600.0
+
+[node name="Start" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 60.0
 grow_horizontal = 0
 grow_vertical = 0
 rect_min_size = Vector2( 200, 60 )
@@ -62,4 +66,17 @@ text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+
+[node name="Audio" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 204.0
+margin_right = 404.0
+margin_bottom = 60.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 200, 60 )
+text = "Test audio fragments"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Audio" to="." method="_on_Audio_pressed"]
