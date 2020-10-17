@@ -28,7 +28,7 @@ func spawn_enemies():
 
 	#print_debug("New wave coming ...")
 	
-	for items in range(wave_size):
+	for _i in range(wave_size):
 		if enemies_left <= 0:
 			#print_debug("No more enemies left")
 			break

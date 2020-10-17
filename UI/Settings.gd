@@ -16,7 +16,10 @@ func _ready():
 	sound_fx.pressed = globals.get_value("game/sound/soundfx")
 
 	has_muffins.pressed = globals.get_value("game/enemies/muffins/enabled")
+	num_muffins.value = globals.get_value("game/enemies/muffins/number")
+
 	has_flyers.pressed = globals.get_value("game/enemies/flyers/enabled")
+	num_flyers.value = globals.get_value("game/enemies/flyers/number")
 
 
 
@@ -33,4 +36,12 @@ func _on_Has_Flyers_toggled(button_pressed):
 
 
 func _on_Num_Flyers_value_changed(value):
-	globals.set_value("game/enemies/flyers/enabled", value)
+	globals.set_value("game/enemies/flyers/number", value)
+
+
+func _on_Has_Muffins_toggled(button_pressed):
+	globals.set_value("game/enemies/muffins/enabled", button_pressed)
+
+
+func _on_Num_Muffins_value_changed(value):
+	globals.set_value("game/enemies/muffins/number", value)

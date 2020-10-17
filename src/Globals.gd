@@ -10,11 +10,11 @@ var settings = {
 		},
 		"enemies": {
 			"muffins": {
-				"enabled": false,
+				"enabled": true,
 				"number": 100,
 			},
 			"flyers": {
-				"enabled": false,
+				"enabled": true,
 				"number": 10,
 			},
 		}
@@ -46,6 +46,7 @@ func set_value(path:String, value):
 		p = p[e]
 
 	p[last] = value
+	#print_debug(settings)
 
 # ------------------------------------
 # All of the GUI/UI related variables

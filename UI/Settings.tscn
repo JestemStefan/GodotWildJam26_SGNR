@@ -105,6 +105,8 @@ text = "Sound FX"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/Muffins/Has Muffins" to="." method="_on_Has_Muffins_toggled"]
+[connection signal="value_changed" from="HBoxContainer/VBoxContainer/Muffins/Num Muffins" to="." method="_on_Num_Muffins_value_changed"]
 [connection signal="toggled" from="HBoxContainer/VBoxContainer/Flyers/Has Flyers" to="." method="_on_Has_Flyers_toggled"]
 [connection signal="value_changed" from="HBoxContainer/VBoxContainer/Flyers/Num Flyers" to="." method="_on_Num_Flyers_value_changed"]
 [connection signal="toggled" from="HBoxContainer/VBoxContainer2/Ambient Sound" to="." method="_on_Ambient_Sound_toggled"]
