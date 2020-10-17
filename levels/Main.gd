@@ -18,3 +18,7 @@ func _on_Audio_pressed():
 
 func _on_Settings_pressed():
 	globals.load_new_scene("UI/Settings.tscn")
+
+
+func _on_Arena_pressed():
+	globals.load_new_scene("levels/Arena_Level.tscn")
