@@ -13,8 +13,13 @@ onready var nav: Navigation = get_tree().get_nodes_in_group("navigation")[0]
 onready var player: KinematicBody = get_tree().get_nodes_in_group("player")[0]
 onready var anim_player: AnimationPlayer = $AnimationPlayer
 
+var rewards: Array = []
+onready var ammo_box = preload("res://models/Pickable/Ammo/Ammo_Box.tscn")
+onready var ammo_jar = preload("res://models/Pickable/Ammo/Ammo_Jar.tscn")
+onready var health_pickup = preload("res://models/Pickable/Health/Health_Pickup.tscn")
+
 func _ready():
-	pass
+	rewards = [health_pickup, ammo_jar, ammo_box]
 	
 func _physics_process(delta):
 	player_position = player.global_transform.origin

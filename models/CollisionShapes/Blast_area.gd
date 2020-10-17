@@ -8,6 +8,7 @@ onready var timer: Timer = $Timer
 
 func _ready():
 	particle_smoke.set_emitting(true)
+	Globals.play_sound("explosion_1_scecond_long", false, global_transform.origin)
 	timer.start(1)
 	
 	

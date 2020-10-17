@@ -161,10 +161,10 @@ shadow_enabled = true
 [node name="FoodProcessor" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, -39.1677 )
 
-[node name="OvenDoors" parent="FoodProcessor" index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.4, 1.31814, 14.2193, -7.28209 )
+[node name="OvenDoors" parent="FoodProcessor" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.4, 1.31814, 7.47968, -7.28209 )
 
-[node name="Knob" parent="FoodProcessor" index="7"]
+[node name="Knob" parent="FoodProcessor" index="8"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04626, 15.2604, -5.1814 )
 
 [node name="Navigation" type="Navigation" parent="." groups=[
@@ -207,5 +207,8 @@ percentage = 10
 capacity = 4
 wave_size = 1
 enemies = [ ExtResource( 9 ) ]
+
+[node name="PlayerRespawnPoint" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26.1215 )
 
 [editable path="FoodProcessor"]
