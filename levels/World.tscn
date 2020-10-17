@@ -50,22 +50,24 @@ visible = false
 shadow_enabled = true
 
 [node name="SpawnPointManager" parent="." instance=ExtResource( 4 )]
+visible = false
 
 [node name="SpawnPointSingle" parent="SpawnPointManager" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.092, 0.1, -10.878 )
+visible = false
 percentage = 60
 wave_size = 1
 enemies = [ ExtResource( 5 ) ]
 
 [node name="SpawnPointSingle2" parent="SpawnPointManager" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0444, 0.256559, 7.32409 )
+visible = false
 percentage = 40
 wave_size = 4
 enemies = [ ExtResource( 5 ) ]
 
 [node name="Flyers" parent="SpawnPointManager" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 4, 0 )
-visible = false
 percentage = 10
 capacity = 4
 wave_size = 1
