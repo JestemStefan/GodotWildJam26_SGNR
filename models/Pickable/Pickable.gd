@@ -23,7 +23,7 @@ func _ready():
 func _physics_process(delta):
 	distance2Player = global_transform.origin.distance_squared_to(player.global_transform.origin)
 	
-	if distance2Player > 250:
+	if distance2Player > 150:
 		move_dir.y += delta * GRAVITY
 		
 		if is_on_floor():
