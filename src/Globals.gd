@@ -28,6 +28,13 @@ var audio_clips = {
 	"ambient": preload("res://assets/audio/Breadventure_sketch_1.wav"),
 	"rifle_shot": preload("res://assets/audio/Gun_sfx_3.wav"),
 	"alien": preload("res://assets/audio/test-alien.ogg"),
+
+	"ammunition_pickup": preload("res://assets/audio/Ammunition_Pickup.wav"),
+	"concrete_boots_walking": preload("res://assets/audio/Concrete_Boots_Walking.wav"),
+	"concrete_boots_running": preload("res://assets/audio/Concrete_Boots_Running.wav"),
+	"gun_sfx_3": preload("res://assets/audio/Gun_sfx_3.wav"),
+	"explosion": preload("res://assets/audio/Explosion.wav"),
+	"explosion_1_scecond_long": preload("res://assets/audio/Explosion_-_1_second_long.wav"),
 }
 
 const SIMPLE_AUDIO_PLAYER_SCENE = preload("res://UI/MonoAudioPlayer.tscn")
