@@ -70,13 +70,16 @@ func load_new_scene(new_scene_path):
 
 
 func _process(_delta):
-	# FIXME: Pausing blocks game and dialog is too small
-	if false && Input.is_action_just_pressed("ui_pause"):
+	if Input.is_action_just_pressed("ui_pause"):
 		if popup == null:
 			popup = POPUP_SCENE.instance()
 
 			canvas_layer.add_child(popup)
 			popup.popup_centered()
+
+			popup.connect("resume", self, "popup_closed")
+			popup.connect("popup_hide", self, "popup_closed")
+			popup.connect("quit", self, "popup_quit")
 
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
