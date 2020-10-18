@@ -4,7 +4,6 @@ onready var player: KinematicBody = get_tree().get_nodes_in_group("player")[0]
 onready var entrace_anim: AnimationPlayer = $AnimationPlayer
 
 func _on_EntraceTrigger_body_entered(body):
-	print(body)
 	if body == player:
 		entrace_anim.play("Close")
 

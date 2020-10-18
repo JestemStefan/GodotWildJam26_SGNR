@@ -38,7 +38,7 @@ func start_wave(n: int):
 
 
 func _ready():
-	start_wave(0)
+	pass
 
 
 func is_depleted() -> bool:

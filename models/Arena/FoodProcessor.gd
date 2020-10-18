@@ -9,7 +9,7 @@ onready var blast_area = preload("res://models/CollisionShapes/Blast_area.tscn")
 
 onready var boss: KinematicBody = get_tree().get_nodes_in_group("boss")[0]
 
-
+var isGameStart: bool = true
 var closed: bool = false
 
 func _ready():
@@ -47,3 +47,12 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		"Wave":
 			open_close()
 
+func _on_Doors_animation_finished(anim_name):
+	match anim_name:
+		"OpenDoors":
+			if isGameStart:
+				get_parent().get_node("WaveTimer").start(2)
+		
+		"CloseDoors":
+			get_parent().get_node("WaveTimer").start(2)
+		

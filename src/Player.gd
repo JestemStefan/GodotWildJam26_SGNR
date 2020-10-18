@@ -148,7 +148,6 @@ func process_raycast(_delta):
 	if ray_cast.is_colliding():
 		var collider = ray_cast.get_collider()
 		
-		print(collider.get_name())
 		# Check if target can take damage
 		if collider.has_method("take_damage"):
 			collider.take_damage(40)

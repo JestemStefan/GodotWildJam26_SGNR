@@ -8,11 +8,11 @@
 [ext_resource path="res://src/Managers/SpawnPointManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Managers/SpawnPoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://models/Enemies/Kamikaze/Kamikaze_Muffin.tscn" type="PackedScene" id=8]
-[ext_resource path="res://models/Enemies/Flyer/FlyingEnemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://models/Arena/Decorations/Tomato_Can.tscn" type="PackedScene" id=10]
 [ext_resource path="res://models/Arena/Decorations/Cookie_Box.tscn" type="PackedScene" id=11]
 [ext_resource path="res://levels/Entrance.gd" type="Script" id=12]
 [ext_resource path="res://models/Boss/Boss_Character.tscn" type="PackedScene" id=13]
+[ext_resource path="res://levels/World.gd" type="Script" id=14]
 
 [sub_resource type="CubeMesh" id=1]
 flip_faces = true
@@ -21,11 +21,10 @@ size = Vector3( 100, 50, 100 )
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.564706, 0.541176, 0.384314, 1 )
 
-[sub_resource type="ConcavePolygonShape" id=9]
+[sub_resource type="ConcavePolygonShape" id=3]
 data = PoolVector3Array( 50, 25, 50, -50, 25, 50, -50, -25, 50, 50, -25, 50, 50, 25, 50, -50, -25, 50, -50, 25, -50, 50, 25, -50, 50, -25, -50, -50, -25, -50, -50, 25, -50, 50, -25, -50, 50, 25, -50, 50, 25, 50, 50, -25, 50, 50, -25, -50, 50, 25, -50, 50, -25, 50, -50, 25, 50, -50, 25, -50, -50, -25, -50, -50, -25, 50, -50, 25, 50, -50, -25, -50, -50, 25, 50, 50, 25, 50, 50, 25, -50, -50, 25, -50, -50, 25, 50, 50, 25, -50, 50, -25, 50, -50, -25, 50, -50, -25, -50, 50, -25, -50, 50, -25, 50, -50, -25, -50 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "Close"
+[sub_resource type="Animation" id=4]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
@@ -40,27 +39,28 @@ tracks/0/keys = {
 "values": [ Vector3( 0.25701, 0, 33.107 ), Vector3( 12.4041, 0, 33.107 ) ]
 }
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=5]
 extents = Vector3( 23.5712, 10.4069, 7.49623 )
 
-[sub_resource type="NavigationMesh" id=5]
+[sub_resource type="NavigationMesh" id=6]
 vertices = PoolVector3Array( 3.4, 1.33555, -36.7528, 3.4, 1.33555, -43.9528, -5.9, 1.33555, -43.9528, -5.9, 1.33555, -36.4528, -32, 0.0355453, -13.3528, -33.8, 0.0355453, -7.65281, -34.4, 0.0355453, -4.05281, -29, 0.0355453, -19.0528, 3.4, 1.33555, -36.7528, -5.9, 1.33555, -36.4528, -5.9, 1.33555, -34.3528, 3.7, 1.33555, -34.3528, -32, 0.0355453, 13.3472, -6.5, 0.0355453, 34.0472, 16.6, 0.0355453, 30.4472, 34.3, 0.0355453, -4.95281, 19.6, 0.0355453, -28.6528, -16.1, 0.0355453, -30.7528, -6.5, 1.33555, -33.7528, -10.1, 0.0355453, -33.1528, -16.1, 0.0355453, -30.7528, -8.1, 0.0355453, -33.2528, -7.7, 0.0355453, -33.5528, 3.7, 1.33555, -34.3528, -5.9, 1.33555, -34.3528, -6.5, 1.33555, -33.7528, -32, 0.0355453, 13.3472, -29, 0.0355453, 19.0472, -26.6, 0.0355453, 22.3472, -20, 0.0355453, 28.3472, -12.8, 0.0355453, 32.2472, -6.5, 0.0355453, 34.0472, 14.2, 0.0355453, -31.6528, 9.1, 0.0355453, -33.4528, 3.7, 1.33555, -34.3528, -6.5, 1.33555, -33.7528, -16.1, 0.0355453, -30.7528, 19.6, 0.0355453, -28.6528, 5.05, 0.0355453, -34.1278, -8.1, 0.0355453, -33.2528, -6.18798, 1.33555, -31.9696, -8.03, 0.0355453, -31.9828, 2.78209, 1.33555, -31.9637, 4.6241, 0.0355453, -31.9505, 11.8122, 0.0355453, -30.1578, 22, 0.0355453, 26.8472, 26.8, 0.0355453, 22.0472, 30.1, 0.0355453, 17.2472, 4.6, 0.0355453, 34.3472, 9.1, 0.0355453, 33.4472, 16.6, 0.0355453, 30.4472, -6.5, 0.0355453, 34.0472, 28.6, 0.0355453, -19.6528, 24.7, 0.0355453, -24.4528, 19.6, 0.0355453, -28.6528, 34.3, 0.0355453, -4.95281, 31.9, 0.0355453, -13.6528, 30.1, 0.0355453, 17.2472, 33.1, 0.0355453, 10.3472, 34.3, 0.0355453, 4.94719, 34.3, 0.0355453, -4.95281, 16.6, 0.0355453, 30.4472, 22, 0.0355453, 26.8472, -16.1, 0.0355453, -30.7528, -22.4, 0.0355453, -26.5528, -29, 0.0355453, -19.0528, -34.4, 0.0355453, -4.05281, -34.1, 0.0355453, 6.14719, -32, 0.0355453, 13.3472 )
 polygons = [ PoolIntArray( 1, 0, 2 ), PoolIntArray( 2, 0, 3 ), PoolIntArray( 5, 4, 6 ), PoolIntArray( 6, 4, 7 ), PoolIntArray( 9, 8, 10 ), PoolIntArray( 10, 8, 11 ), PoolIntArray( 13, 12, 14 ), PoolIntArray( 14, 12, 15 ), PoolIntArray( 15, 12, 16 ), PoolIntArray( 16, 12, 17 ), PoolIntArray( 18, 21, 22 ), PoolIntArray( 22, 21, 19 ), PoolIntArray( 19, 21, 20 ), PoolIntArray( 25, 24, 23 ), PoolIntArray( 27, 26, 28 ), PoolIntArray( 28, 26, 29 ), PoolIntArray( 29, 26, 30 ), PoolIntArray( 30, 26, 31 ), PoolIntArray( 36, 44, 37 ), PoolIntArray( 37, 44, 32 ), PoolIntArray( 32, 44, 33 ), PoolIntArray( 33, 43, 38 ), PoolIntArray( 38, 43, 34 ), PoolIntArray( 34, 42, 35 ), PoolIntArray( 35, 40, 39 ), PoolIntArray( 39, 41, 36 ), PoolIntArray( 36, 40, 44 ), PoolIntArray( 44, 43, 33 ), PoolIntArray( 43, 42, 34 ), PoolIntArray( 42, 40, 35 ), PoolIntArray( 40, 41, 39 ), PoolIntArray( 41, 40, 36 ), PoolIntArray( 40, 42, 44 ), PoolIntArray( 44, 42, 43 ), PoolIntArray( 47, 46, 45 ), PoolIntArray( 49, 48, 50 ), PoolIntArray( 50, 48, 51 ), PoolIntArray( 53, 52, 54 ), PoolIntArray( 54, 52, 56 ), PoolIntArray( 54, 56, 55 ), PoolIntArray( 58, 57, 59 ), PoolIntArray( 59, 57, 60 ), PoolIntArray( 60, 57, 62 ), PoolIntArray( 60, 62, 61 ), PoolIntArray( 64, 63, 65 ), PoolIntArray( 65, 63, 66 ), PoolIntArray( 66, 63, 67 ), PoolIntArray( 67, 63, 68 ) ]
 cell/height = 0.1
 agent/max_climb = 1.5
 agent/max_slope = 60.0
 
-[sub_resource type="CylinderMesh" id=6]
+[sub_resource type="CylinderMesh" id=7]
 top_radius = 35.0
 bottom_radius = 35.0
 height = 5.0
 
-[sub_resource type="CubeMesh" id=7]
+[sub_resource type="CubeMesh" id=8]
 size = Vector3( 10, 2, 13 )
 
-[sub_resource type="BoxShape" id=8]
+[sub_resource type="BoxShape" id=9]
 
 [node name="Arena_Level" type="Spatial"]
+script = ExtResource( 14 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.27879, 3.24791, 43.6313 )
@@ -224,7 +224,7 @@ __meta__ = {
 [node name="StaticBody" type="StaticBody" parent="Arena/Walls/MeshInstance"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Arena/Walls/MeshInstance/StaticBody"]
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
 [node name="Entrance" type="Spatial" parent="Arena"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25701, 0, 33.107 )
@@ -237,7 +237,7 @@ transform = Transform( -0.998473, 2.4149e-09, 0.0552465, -2.4149e-09, 1, -8.7356
 transform = Transform( -0.998473, 2.4149e-09, 0.0552465, -2.4149e-09, 1, -8.7356e-08, -0.0552465, -8.7356e-08, -0.998473, -16.735, 7.006, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Arena/Entrance"]
-anims/Close = SubResource( 3 )
+anims/Close = SubResource( 4 )
 
 [node name="EntraceTrigger" type="Area" parent="Arena"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5499, 2.04051, 25.0219 )
@@ -247,7 +247,7 @@ collision_mask = 2
 
 [node name="CollisionPolygon" type="CollisionShape" parent="Arena/EntraceTrigger"]
 transform = Transform( 0.999978, 0, -0.00664966, 0, 1, 0, 0.00664966, 0, 0.999978, 2.01072, 7.82458, -6.84593 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.560292, -0.530622, 0.636014, 0, 0.767859, 0.640619, -0.828295, -0.358934, 0.430225, 0, 58.0235, 0 )
@@ -261,37 +261,27 @@ transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, -
 ]]
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
-navmesh = SubResource( 5 )
+navmesh = SubResource( 6 )
 
 [node name="Table" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.66445, 0 )
-mesh = SubResource( 6 )
+mesh = SubResource( 7 )
 material/0 = null
 
 [node name="OvenFloor" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25624, 0.171871, -38.0528 )
-mesh = SubResource( 7 )
+mesh = SubResource( 8 )
 material/0 = null
 
 [node name="SpawnPointManager" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.945948, 1.57241, -39.3722 )
 
 [node name="Muffins One" parent="SpawnPointManager" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.17302, 0.0999999, -2.16008 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.142434, 0.0999999, -1.4936 )
 percentage = 60
+capacity = [ 5, 10 ]
+wave_size = [ 1, 2 ]
 enemies = [ ExtResource( 8 ) ]
-
-[node name="Muffins Two" parent="SpawnPointManager" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59312, 0.256559, -1.30457 )
-percentage = 40
-enemies = [ ExtResource( 8 ) ]
-
-[node name="Flyers" parent="SpawnPointManager" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17612, 9.20463, -3.09511 )
-visible = false
-percentage = 10
-capacity = [ 10 ]
-enemies = [ ExtResource( 9 ) ]
 
 [node name="PlayerRespawnPoint" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.641, 21.9141 )
@@ -302,11 +292,17 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.641, 21.9141 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13509, 2.5217, -37.322 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Close_Doors"]
-shape = SubResource( 8 )
+shape = SubResource( 9 )
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 3.0
 [connection signal="animation_finished" from="Arena/Entrance/AnimationPlayer" to="Arena/Entrance" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="Arena/EntraceTrigger" to="Arena/Entrance" method="_on_EntraceTrigger_body_entered"]
+[connection signal="animation_finished" from="FoodProcessor/Doors" to="." method="_on_Doors_animation_finished"]
+[connection signal="animation_finished" from="Boss_Character/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="Boss_Character/AnimationPlayer" to="FoodProcessor" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="Close_Doors" to="Boss_Character" method="_on_Close_Doors_body_entered"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]
 
 [editable path="FoodProcessor"]
 
