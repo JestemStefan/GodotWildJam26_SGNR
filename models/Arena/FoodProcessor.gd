@@ -1,5 +1,7 @@
 extends Spatial
 
+signal BossKilled
+
 onready var blender = $FP_Blender
 onready var small_blender = $FP_Small_Blender
 onready var bowl = $FP_Bowl
@@ -50,9 +52,10 @@ func damage_part(name):
 		explosion.global_transform.origin = part.global_transform.origin
 		
 		Boss_HP.set_value(blender_HP + S_blender_HP + bowl_HP)
-	
-		
-	
+		if Boss_HP.value == 0:
+			emit_signal("BossKilled")
+
+
 func open_close():
 	if closed:
 		door_animplayer.play("OpenDoors")
