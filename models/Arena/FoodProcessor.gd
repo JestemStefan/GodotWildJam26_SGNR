@@ -10,6 +10,7 @@ var blender_HP = 100
 var S_blender_HP = 100
 var bowl_HP = 100
 
+
 onready var door_animplayer: AnimationPlayer = $Doors
 onready var blast_area = preload("res://models/CollisionShapes/Blast_area.tscn")
 
@@ -52,10 +53,15 @@ func damage_part(name):
 		explosion.global_transform.origin = part.global_transform.origin
 		
 		Boss_HP.set_value(blender_HP + S_blender_HP + bowl_HP)
-		if Boss_HP.value == 0:
-			emit_signal("BossKilled")
+		
+	if Boss_HP.value <= 0:
+		$Explosions/Explosions_timer.start(0.2)
 
+		get_parent().get_node("Gameover").start(5)
 
+	
+		
+	
 func open_close():
 	if closed:
 		door_animplayer.play("OpenDoors")
@@ -71,3 +77,11 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		"Wave":
 			open_close()
 
+
+
+func _on_Explosions_timer_timeout():
+	randomize()
+	$Explosions/Explosions_timer.start(rand_range(0.2, 0.5))
+	var explosion = blast_area.instance()
+	get_tree().get_current_scene().add_child(explosion)
+	explosion.global_transform.origin = global_transform.origin + Vector3(rand_range(-10,10), rand_range(-10,10), rand_range(-10,10))
