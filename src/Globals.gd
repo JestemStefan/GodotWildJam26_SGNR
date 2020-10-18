@@ -20,11 +20,29 @@ var settings = {
 		}
 	},
 	"credits": {
-		"names": [
-			"A",
-			"B",
-			"C"
-		]
+		"names": {
+			"Taylor Kirkwood": {
+				"credits" : ["Composer", "Sound Effects"],
+				"links": {
+					"twitter": "https://mobile.twitter.com/TaylorKComposer",
+					"youtube": "https://www.youtube.com/user/MrSmashmasterk"
+				},
+			},
+			"JestemStefan": {
+				"credits" : [ "3D Artist", "Coding", "Game Design", "Texturing", "Animations"],
+				"links": {
+					"itch" : "https://jestemstefan.itch.io/"
+				},
+			},
+			"Clemens Tolboom": {
+				"credits" : ["Coding", "Task hunter", "Menus"],
+				"links": {
+					"itch": "https://clemenstolboom.itch.io/",
+					"twitter": "https://mobile.twitter.com/ClemensTolboom"
+				},
+			},
+		},
+		"tools": ["Logic", "Blender", "Audacity", "VSCode", "Godot", "git", "GitLab.com"]
 	}
 }
 
