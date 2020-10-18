@@ -20,5 +20,4 @@ func _ready():
 
 
 func _clip_pressed(clip):
-	print_debug(clip)
 	globals.play_sound(clip)
