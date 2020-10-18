@@ -92,6 +92,7 @@ var created_audio = []
 
 
 func _ready():
+	play_sound("ambient", true)
 	# Randomize the random number generator, so we get random values
 	randomize()
 	

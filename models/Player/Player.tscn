@@ -14,14 +14,14 @@ mid_height = 2.0
 radial_segments = 16
 rings = 4
 
-[sub_resource type="Gradient" id=6]
+[sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0, 0.243478 )
 colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=7]
-gradient = SubResource( 6 )
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=5]
 direction = Vector3( 0, 1, 0 )
 spread = 60.0
 gravity = Vector3( 0, 9.8, 0 )
@@ -30,9 +30,9 @@ angular_velocity = 90.0
 angular_velocity_random = 1.0
 scale = 0.1
 scale_random = 0.5
-color_ramp = SubResource( 7 )
+color_ramp = SubResource( 4 )
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=6]
 flags_unshaded = true
 vertex_color_use_as_albedo = true
 params_blend_mode = 1
@@ -42,12 +42,14 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 albedo_texture = ExtResource( 4 )
 
-[sub_resource type="QuadMesh" id=5]
-material = SubResource( 4 )
+[sub_resource type="QuadMesh" id=7]
+material = SubResource( 6 )
 
 [node name="Player" type="KinematicBody" groups=[
 "player",
 ]]
+collision_layer = 2
+collision_mask = 37
 script = ExtResource( 1 )
 health = 50.0
 ammo = 5
@@ -89,8 +91,8 @@ lifetime = 3.0
 one_shot = true
 explosiveness = 0.75
 visibility_aabb = AABB( -3.81652, -4.48699, -5.90651, 7.63305, 8.97397, 11.813 )
-process_material = SubResource( 3 )
-draw_pass_1 = SubResource( 5 )
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 7 )
 
 [node name="RunningAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )

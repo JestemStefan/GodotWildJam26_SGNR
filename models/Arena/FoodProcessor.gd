@@ -7,7 +7,10 @@ onready var bowl = $FP_Bowl
 onready var door_animplayer: AnimationPlayer = $Doors
 onready var blast_area = preload("res://models/CollisionShapes/Blast_area.tscn")
 
-var closed: bool = true
+onready var boss: KinematicBody = get_tree().get_nodes_in_group("boss")[0]
+
+
+var closed: bool = false
 
 func _ready():
 	$Spinning.play("Idle")
@@ -31,10 +34,16 @@ func damage_part(name):
 	
 		part.call_deferred("free")
 	
-
-func _on_Timer_timeout():
+func open_close():
 	if closed:
 		door_animplayer.play("OpenDoors")
 	else:
 		door_animplayer.play("CloseDoors")
 	closed = !closed
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	match anim_name:
+		"Wave":
+			open_close()
+
