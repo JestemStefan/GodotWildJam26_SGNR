@@ -50,27 +50,26 @@ visible = false
 shadow_enabled = true
 
 [node name="SpawnPointManager" parent="." instance=ExtResource( 4 )]
-visible = false
 
 [node name="Muffins One" parent="SpawnPointManager" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.092, 0.1, -10.878 )
-visible = false
 percentage = 60
-wave_size = 1
+capacity = [ 10, 20 ]
+wave_size = [ 5, 10 ]
 enemies = [ ExtResource( 5 ) ]
 
 [node name="Muffins Two" parent="SpawnPointManager" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0444, 0.256559, 7.32409 )
-visible = false
 percentage = 40
-wave_size = 4
+capacity = [ 50, 100 ]
+wave_size = [ 3, 8 ]
 enemies = [ ExtResource( 5 ) ]
 
 [node name="Flyers" parent="SpawnPointManager" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 4, 0 )
 percentage = 10
-capacity = 4
-wave_size = 1
+capacity = [ 2, 6 ]
+wave_size = [ 1, 1 ]
 enemies = [ ExtResource( 6 ) ]
 
 [node name="Navigation" type="Navigation" parent="." groups=[
