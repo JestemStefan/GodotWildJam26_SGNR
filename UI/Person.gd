@@ -21,3 +21,7 @@ func set_person(name, person):
 		var lb:LinkButton = LinkButton.new()
 		links.add_child(lb)
 		lb.text = l
+		lb.connect("button_down", self, "link_clicked", [ls[l]])
+
+func link_clicked(link):
+	OS.shell_open(link)
