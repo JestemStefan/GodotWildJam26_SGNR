@@ -38,8 +38,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="gwj-26"
-run/main_scene="res://levels/Arena_Level.tscn"
+config/name="Something's Gone A-Rye!"
+run/main_scene="res://levels/Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
