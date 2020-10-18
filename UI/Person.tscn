@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/Person.gd" type="Script" id=1]
+
+
+[node name="Person" type="VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Columns" type="HBoxContainer" parent="."]
+margin_right = 207.0
+margin_bottom = 14.0
+
+[node name="Name" type="Label" parent="Columns"]
+margin_right = 116.0
+margin_bottom = 14.0
+text = "Clemens Tolboom"
+
+[node name="Skills" type="VBoxContainer" parent="Columns"]
+margin_left = 120.0
+margin_right = 163.0
+margin_bottom = 14.0
+
+[node name="Label" type="Label" parent="Columns/Skills"]
+margin_right = 43.0
+margin_bottom = 14.0
+text = "Coding"
+
+[node name="Links" type="HBoxContainer" parent="Columns"]
+margin_left = 167.0
+margin_right = 207.0
+margin_bottom = 14.0
+
+[node name="LinkButton" type="LinkButton" parent="Columns/Links"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "itch.io"
