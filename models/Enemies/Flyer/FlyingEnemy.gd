@@ -41,7 +41,7 @@ func _physics_process(delta):
 
 	add_force(dir, Vector3.ZERO)
 
-	if flap > 0:
+	if me.y < 5 && flap > 0:
 		flap -= 1
 		add_force(Vector3.UP * 25, Vector3.ZERO)
 
