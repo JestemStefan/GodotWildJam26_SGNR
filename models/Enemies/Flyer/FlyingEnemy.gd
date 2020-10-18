@@ -27,6 +27,10 @@ func _physics_process(delta):
 	if distance > 10:
 		towards = true
 
+	if distance < 3:
+		player.take_damage(1)
+		towards = false
+
 	var dir = direction.normalized() * speed
 
 	if !towards:

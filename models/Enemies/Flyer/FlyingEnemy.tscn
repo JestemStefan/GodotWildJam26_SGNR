@@ -12,7 +12,9 @@ albedo_color = Color( 0.941176, 0.835294, 0.141176, 1 )
 [sub_resource type="CylinderShape" id=3]
 height = 0.1
 
-[node name="FlyingEnemy" type="RigidBody"]
+[node name="FlyingEnemy" type="RigidBody" groups=[
+"Enemy",
+]]
 gravity_scale = 0.05
 script = ExtResource( 1 )
 
