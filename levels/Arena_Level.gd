@@ -1,10 +1,17 @@
 extends Spatial
 
+var globals
+
 onready var spawn_point_manager = $SpawnPointManager
 onready var door_timer = $DoorTimer
 onready var food_processor = $FoodProcessor
 
 var open_door: bool = false
+
+func _ready():
+	globals = get_node("/root/Globals")
+
+	globals.play_sound("cookie_crumbles", true)
 
 #func _process(_delta):
 #	if spawn_point_manager.is_depleted():
