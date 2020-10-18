@@ -91,9 +91,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Settings" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Credits" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 margin_left = 612.0
 margin_right = 812.0
+margin_bottom = 60.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 200, 60 )
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 816.0
+margin_right = 1016.0
 margin_bottom = 60.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -105,4 +117,5 @@ __meta__ = {
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Arena" to="." method="_on_Arena_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/World" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Audio" to="." method="_on_Audio_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Settings" to="." method="_on_Settings_pressed"]

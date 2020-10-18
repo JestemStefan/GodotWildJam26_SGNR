@@ -1,21 +1,35 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://UI/Credits.gd" type="Script" id=1]
 
+[sub_resource type="Theme" id=1]
+LinkButton/colors/ = Color( 0.0258484, 0.945312, 0.212615, 1 )
+LinkButton/icons/ = null
 
-[node name="Credits" type="VBoxContainer"]
-margin_left = -4.0
-margin_right = 1027.0
-margin_bottom = 601.0
+[node name="CenterContainer" type="CenterContainer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="VBoxContainer" parent="."]
+margin_left = 412.0
+margin_top = 198.0
+margin_right = 612.0
+margin_bottom = 402.0
+rect_min_size = Vector2( 200, 200 )
+theme = SubResource( 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 1031.0
+[node name="People" type="VBoxContainer" parent="Credits"]
+margin_right = 200.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+[node name="Tools" type="HBoxContainer" parent="Credits"]
 margin_top = 4.0
-margin_right = 1031.0
-margin_bottom = 4.0
+margin_right = 200.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 200, 200 )
