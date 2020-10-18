@@ -1,5 +1,7 @@
 extends Spatial
 
+signal BossKilled
+
 onready var blender = $FP_Blender
 onready var small_blender = $FP_Small_Blender
 onready var bowl = $FP_Bowl
