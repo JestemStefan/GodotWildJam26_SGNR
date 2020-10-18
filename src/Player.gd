@@ -224,3 +224,5 @@ func add_bullet_decal():
 	ray_cast.get_collider().add_child(b)
 	b.global_transform.origin = ray_cast.get_collision_point()
 	b.look_at(ray_cast.get_collision_point() + ray_cast.get_collision_normal(), Vector3(0.3,0.3,0.3))
+
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://models/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://models/Arena/FoodProcessor.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://models/Enemies/Flyer/FlyingEnemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://models/Arena/Decorations/Tomato_Can.tscn" type="PackedScene" id=10]
 [ext_resource path="res://models/Arena/Decorations/Cookie_Box.tscn" type="PackedScene" id=11]
+[ext_resource path="res://levels/Entrance.gd" type="Script" id=12]
+[ext_resource path="res://models/Boss/Boss_Character.tscn" type="PackedScene" id=13]
 
 [sub_resource type="CubeMesh" id=1]
 flip_faces = true
@@ -19,24 +21,46 @@ size = Vector3( 100, 50, 100 )
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.564706, 0.541176, 0.384314, 1 )
 
-[sub_resource type="NavigationMesh" id=3]
+[sub_resource type="Animation" id=3]
+resource_name = "Close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.25701, 0, 33.107 ), Vector3( 12.4041, 0, 33.107 ) ]
+}
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 23.5712, 10.4069, 7.49623 )
+
+[sub_resource type="NavigationMesh" id=5]
 vertices = PoolVector3Array( 3.4, 1.33555, -36.7528, 3.4, 1.33555, -43.9528, -5.9, 1.33555, -43.9528, -5.9, 1.33555, -36.4528, -32, 0.0355453, -13.3528, -33.8, 0.0355453, -7.65281, -34.4, 0.0355453, -4.05281, -29, 0.0355453, -19.0528, 3.4, 1.33555, -36.7528, -5.9, 1.33555, -36.4528, -5.9, 1.33555, -34.3528, 3.7, 1.33555, -34.3528, -32, 0.0355453, 13.3472, -6.5, 0.0355453, 34.0472, 16.6, 0.0355453, 30.4472, 34.3, 0.0355453, -4.95281, 19.6, 0.0355453, -28.6528, -16.1, 0.0355453, -30.7528, -6.5, 1.33555, -33.7528, -10.1, 0.0355453, -33.1528, -16.1, 0.0355453, -30.7528, -8.1, 0.0355453, -33.2528, -7.7, 0.0355453, -33.5528, 3.7, 1.33555, -34.3528, -5.9, 1.33555, -34.3528, -6.5, 1.33555, -33.7528, -32, 0.0355453, 13.3472, -29, 0.0355453, 19.0472, -26.6, 0.0355453, 22.3472, -20, 0.0355453, 28.3472, -12.8, 0.0355453, 32.2472, -6.5, 0.0355453, 34.0472, 14.2, 0.0355453, -31.6528, 9.1, 0.0355453, -33.4528, 3.7, 1.33555, -34.3528, -6.5, 1.33555, -33.7528, -16.1, 0.0355453, -30.7528, 19.6, 0.0355453, -28.6528, 5.05, 0.0355453, -34.1278, -8.1, 0.0355453, -33.2528, -6.18798, 1.33555, -31.9696, -8.03, 0.0355453, -31.9828, 2.78209, 1.33555, -31.9637, 4.6241, 0.0355453, -31.9505, 11.8122, 0.0355453, -30.1578, 22, 0.0355453, 26.8472, 26.8, 0.0355453, 22.0472, 30.1, 0.0355453, 17.2472, 4.6, 0.0355453, 34.3472, 9.1, 0.0355453, 33.4472, 16.6, 0.0355453, 30.4472, -6.5, 0.0355453, 34.0472, 28.6, 0.0355453, -19.6528, 24.7, 0.0355453, -24.4528, 19.6, 0.0355453, -28.6528, 34.3, 0.0355453, -4.95281, 31.9, 0.0355453, -13.6528, 30.1, 0.0355453, 17.2472, 33.1, 0.0355453, 10.3472, 34.3, 0.0355453, 4.94719, 34.3, 0.0355453, -4.95281, 16.6, 0.0355453, 30.4472, 22, 0.0355453, 26.8472, -16.1, 0.0355453, -30.7528, -22.4, 0.0355453, -26.5528, -29, 0.0355453, -19.0528, -34.4, 0.0355453, -4.05281, -34.1, 0.0355453, 6.14719, -32, 0.0355453, 13.3472 )
 polygons = [ PoolIntArray( 1, 0, 2 ), PoolIntArray( 2, 0, 3 ), PoolIntArray( 5, 4, 6 ), PoolIntArray( 6, 4, 7 ), PoolIntArray( 9, 8, 10 ), PoolIntArray( 10, 8, 11 ), PoolIntArray( 13, 12, 14 ), PoolIntArray( 14, 12, 15 ), PoolIntArray( 15, 12, 16 ), PoolIntArray( 16, 12, 17 ), PoolIntArray( 18, 21, 22 ), PoolIntArray( 22, 21, 19 ), PoolIntArray( 19, 21, 20 ), PoolIntArray( 25, 24, 23 ), PoolIntArray( 27, 26, 28 ), PoolIntArray( 28, 26, 29 ), PoolIntArray( 29, 26, 30 ), PoolIntArray( 30, 26, 31 ), PoolIntArray( 36, 44, 37 ), PoolIntArray( 37, 44, 32 ), PoolIntArray( 32, 44, 33 ), PoolIntArray( 33, 43, 38 ), PoolIntArray( 38, 43, 34 ), PoolIntArray( 34, 42, 35 ), PoolIntArray( 35, 40, 39 ), PoolIntArray( 39, 41, 36 ), PoolIntArray( 36, 40, 44 ), PoolIntArray( 44, 43, 33 ), PoolIntArray( 43, 42, 34 ), PoolIntArray( 42, 40, 35 ), PoolIntArray( 40, 41, 39 ), PoolIntArray( 41, 40, 36 ), PoolIntArray( 40, 42, 44 ), PoolIntArray( 44, 42, 43 ), PoolIntArray( 47, 46, 45 ), PoolIntArray( 49, 48, 50 ), PoolIntArray( 50, 48, 51 ), PoolIntArray( 53, 52, 54 ), PoolIntArray( 54, 52, 56 ), PoolIntArray( 54, 56, 55 ), PoolIntArray( 58, 57, 59 ), PoolIntArray( 59, 57, 60 ), PoolIntArray( 60, 57, 62 ), PoolIntArray( 60, 62, 61 ), PoolIntArray( 64, 63, 65 ), PoolIntArray( 65, 63, 66 ), PoolIntArray( 66, 63, 67 ), PoolIntArray( 67, 63, 68 ) ]
 cell/height = 0.1
 agent/max_climb = 1.5
 agent/max_slope = 60.0
 
-[sub_resource type="CylinderMesh" id=4]
+[sub_resource type="CylinderMesh" id=6]
 top_radius = 35.0
 bottom_radius = 35.0
 height = 5.0
 
-[sub_resource type="CubeMesh" id=5]
+[sub_resource type="CubeMesh" id=7]
 size = Vector3( 10, 2, 13 )
+
+[sub_resource type="BoxShape" id=8]
 
 [node name="Arena_Level" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.27879, 3.24791, 43.6313 )
 
 [node name="Arena" type="Spatial" parent="."]
 
@@ -107,9 +131,6 @@ transform = Transform( -0.176965, 5.18359e-08, 0.984217, 4.39897e-08, 1, -4.4757
 [node name="Cookie_Box11" parent="Arena/Walls" instance=ExtResource( 11 )]
 transform = Transform( 0.696051, 4.01989e-08, 0.717993, 2.48175e-08, 1, -8.0047e-08, -0.717993, 7.35355e-08, 0.696051, -22.8062, 5.94293e-07, -26.1309 )
 
-[node name="Cookie_Box4" parent="Arena/Walls" instance=ExtResource( 11 )]
-transform = Transform( -0.998473, 2.4149e-09, 0.0552465, -2.4149e-09, 1, -8.7356e-08, -0.0552465, -8.7356e-08, -0.998473, -4.62574, -1.45712e-07, 33.3934 )
-
 [node name="Loop_Box4" parent="Arena/Walls" instance=ExtResource( 4 )]
 transform = Transform( 0.874188, 0, -0.485588, 0, 1, 0, 0.485588, 0, 0.874188, 15.2451, 0, -31.155 )
 
@@ -134,11 +155,47 @@ transform = Transform( -0.0724027, -4.35967e-08, -0.997375, 4.35967e-08, 1, -4.6
 [node name="Loop_Box6" parent="Arena/Walls" instance=ExtResource( 4 )]
 transform = Transform( -0.851425, 1.96916e-09, 0.524476, -4.41513e-08, 1, -7.54289e-08, -0.524476, -8.73784e-08, -0.851425, -16.1749, -8.08303e-07, 29.7194 )
 
+[node name="Loop_Box8" parent="Arena/Walls" instance=ExtResource( 4 )]
+transform = Transform( -3.25841e-07, 2, -1.62921e-07, 0, -3.25841e-07, -1, -2, -3.25841e-07, 2.65431e-14, -12.4734, -9.53674e-07, 42.3709 )
+
+[node name="Loop_Box9" parent="Arena/Walls" instance=ExtResource( 4 )]
+transform = Transform( -3.25841e-07, 2, -1.62921e-07, 0, -3.25841e-07, -1, -2, -3.25841e-07, 2.65431e-14, -10.6469, 16.2721, 42.3709 )
+
 [node name="Peas_Can7" parent="Arena/Walls" instance=ExtResource( 5 )]
 transform = Transform( 0.967166, -4.37049e-08, 0.254146, 3.13518e-08, 1, 5.26569e-08, -0.254146, -4.296e-08, 0.967166, 24.6322, 6.40508e-07, 21.9293 )
 
 [node name="Peas_Can8" parent="Arena/Walls" instance=ExtResource( 5 )]
-transform = Transform( 0.967166, -4.37049e-08, 0.254146, 3.13518e-08, 1, 5.26569e-08, -0.254146, -4.296e-08, 0.967166, 4.58721, 2.45691e-07, 33.1315 )
+transform = Transform( 0.967166, -4.37049e-08, 0.254146, 3.13518e-08, 1, 5.26569e-08, -0.254146, -4.296e-08, 0.967166, -10.4815, 3.10671e-06, 37.2047 )
+
+[node name="Tomato_Can7" parent="Arena/Walls" instance=ExtResource( 10 )]
+transform = Transform( 0.989412, -4.94771e-08, -0.145133, 4.37049e-08, 1, -4.296e-08, 0.145133, 3.6162e-08, 0.989412, -10.4849, 2.35403e-06, 42.897 )
+
+[node name="Peas_Can13" parent="Arena/Walls" instance=ExtResource( 5 )]
+transform = Transform( 0.967166, -4.37049e-08, 0.254146, 3.13518e-08, 1, 5.26569e-08, -0.254146, -4.296e-08, 0.967166, 4.57845, 3.10671e-06, 38.9736 )
+
+[node name="Tomato_Can8" parent="Arena/Walls" instance=ExtResource( 10 )]
+transform = Transform( 0.989412, -4.94771e-08, -0.145133, 4.37049e-08, 1, -4.296e-08, 0.145133, 3.6162e-08, 0.989412, 4.57503, 2.35403e-06, 44.6659 )
+
+[node name="Peas_Can14" parent="Arena/Walls" instance=ExtResource( 5 )]
+transform = Transform( 0.981873, -2.08028e-08, -0.189541, 3.13518e-08, 1, 5.26569e-08, 0.189541, -5.76448e-08, 0.981873, -10.3762, 7.47451, 48.6312 )
+
+[node name="Peas_Can15" parent="Arena/Walls" instance=ExtResource( 5 )]
+transform = Transform( 0.981873, -2.08028e-08, -0.189541, 3.13518e-08, 1, 5.26569e-08, 0.189541, -5.76448e-08, 0.981873, -10.4797, 7.47451, 42.79 )
+
+[node name="Tomato_Can9" parent="Arena/Walls" instance=ExtResource( 10 )]
+transform = Transform( 0.981873, -5.10553e-08, -0.189541, 4.37049e-08, 1, -4.29599e-08, 0.189541, 3.38973e-08, 0.981873, -10.5856, 7.47451, 37.0986 )
+
+[node name="Peas_Can12" parent="Arena/Walls" instance=ExtResource( 5 )]
+transform = Transform( -0.0939866, -4.94771e-08, 0.995574, 3.13518e-08, 1, 5.26569e-08, -0.995574, 3.6162e-08, -0.0939866, -10.4858, 2.15304e-06, 48.595 )
+
+[node name="Peas_Can16" parent="Arena/Walls" instance=ExtResource( 5 )]
+transform = Transform( 0.967166, -4.37049e-08, 0.254146, 3.13518e-08, 1, 5.26569e-08, -0.254146, -4.296e-08, 0.967166, 4.80604, 7.62196, 33.3079 )
+
+[node name="Tomato_Can10" parent="Arena/Walls" instance=ExtResource( 10 )]
+transform = Transform( 0.989412, -4.94771e-08, -0.145133, 4.37049e-08, 1, -4.296e-08, 0.145133, 3.6162e-08, 0.989412, 4.80262, 7.62196, 39.0002 )
+
+[node name="Peas_Can17" parent="Arena/Walls" instance=ExtResource( 5 )]
+transform = Transform( -0.0939866, -4.94771e-08, 0.995574, 3.13518e-08, 1, 5.26569e-08, -0.995574, 3.6162e-08, -0.0939866, 4.80174, 7.62196, 44.6983 )
 
 [node name="Tomato_Can4" parent="Arena/Walls" instance=ExtResource( 10 )]
 transform = Transform( 0.0171907, -4.37049e-08, -0.999852, 4.37049e-08, 1, -4.296e-08, 0.999852, -4.296e-08, 0.0171907, 10.21, 4.46681e-07, 32.0897 )
@@ -147,12 +204,42 @@ transform = Transform( 0.0171907, -4.37049e-08, -0.999852, 4.37049e-08, 1, -4.29
 transform = Transform( -0.801974, -2.61114e-08, -0.597359, 2.61114e-08, 1, -7.87668e-08, 0.597359, -7.87668e-08, -0.801974, 17.6975, 5.93373e-07, 27.887 )
 
 [node name="Cookie_Box8" parent="Arena/Walls" instance=ExtResource( 11 )]
-transform = Transform( -0.998473, 2.4149e-09, 0.0552465, -2.4149e-09, 1, -8.7356e-08, -0.0552465, -8.7356e-08, -0.998473, -4.62574, -1.45712e-07, 33.3934 )
+transform = Transform( -0.999929, -3.45908e-09, -0.0119552, -2.4149e-09, 1, -8.7356e-08, 0.0119552, -8.73209e-08, -0.999929, -2.45092, -1.45712e-07, 48.613 )
+
+[node name="Cookie_Box12" parent="Arena/Walls" instance=ExtResource( 11 )]
+transform = Transform( -0.999929, -3.45908e-09, -0.0119552, -2.4149e-09, 1, -8.7356e-08, 0.0119552, -8.73209e-08, -0.999929, -2.45092, 7.20552, 48.613 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Arena/Walls"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.1777, 0 )
+cast_shadow = 0
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Entrance" type="Spatial" parent="Arena"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25701, 0, 33.107 )
+script = ExtResource( 12 )
+
+[node name="Cookie_Box4" parent="Arena/Entrance" instance=ExtResource( 11 )]
+transform = Transform( -0.998473, 2.4149e-09, 0.0552465, -2.4149e-09, 1, -8.7356e-08, -0.0552465, -8.7356e-08, -0.998473, -16.735, 0, 0 )
+
+[node name="Cookie_Box5" parent="Arena/Entrance" instance=ExtResource( 11 )]
+transform = Transform( -0.998473, 2.4149e-09, 0.0552465, -2.4149e-09, 1, -8.7356e-08, -0.0552465, -8.7356e-08, -0.998473, -16.735, 7.006, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Arena/Entrance"]
+anims/Close = SubResource( 3 )
+
+[node name="EntraceTrigger" type="Area" parent="Arena"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5499, 2.04051, 25.0219 )
+input_ray_pickable = false
+collision_layer = 2147483651
+collision_mask = 2
+
+[node name="CollisionPolygon" type="CollisionShape" parent="Arena/EntraceTrigger"]
+transform = Transform( 0.999978, 0, -0.00664966, 0, 1, 0, 0.00664966, 0, 0.999978, 2.01072, 7.82458, -6.84593 )
+shape = SubResource( 4 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.560292, -0.530622, 0.636014, 0, 0.767859, 0.640619, -0.828295, -0.358934, 0.430225, 0, 58.0235, 0 )
@@ -161,8 +248,8 @@ shadow_enabled = true
 [node name="FoodProcessor" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, -39.1677 )
 
-[node name="OvenDoors" parent="FoodProcessor" index="2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.4, 1.31814, 7.47968, -7.28209 )
+[node name="Timer" parent="FoodProcessor" index="0"]
+autostart = false
 
 [node name="Knob" parent="FoodProcessor" index="8"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04626, 15.2604, -5.1814 )
@@ -172,23 +259,25 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04626, 15.2604, -5.1814 )
 ]]
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
-navmesh = SubResource( 3 )
+navmesh = SubResource( 5 )
 
 [node name="Table" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.66445, 0 )
-mesh = SubResource( 4 )
+mesh = SubResource( 6 )
 material/0 = null
 
 [node name="OvenFloor" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25624, 0.171871, -38.0528 )
-mesh = SubResource( 5 )
+mesh = SubResource( 7 )
 material/0 = null
 
 [node name="SpawnPointManager" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.945948, 1.57241, -39.3722 )
+visible = false
 
 [node name="Muffins One" parent="SpawnPointManager" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.17302, 0.0999999, -2.16008 )
+visible = false
 percentage = 60
 wave_size = 1
 enemies = [ ExtResource( 8 ) ]
@@ -209,6 +298,21 @@ wave_size = 1
 enemies = [ ExtResource( 9 ) ]
 
 [node name="PlayerRespawnPoint" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26.1215 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.641, 21.9141 )
+
+[node name="Boss_Character" parent="." instance=ExtResource( 13 )]
+
+[node name="Close_Doors" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13509, 2.5217, -37.322 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Close_Doors"]
+shape = SubResource( 8 )
+[connection signal="animation_finished" from="Arena/Entrance/AnimationPlayer" to="Arena/Entrance" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="Arena/EntraceTrigger" to="Arena/Entrance" method="_on_EntraceTrigger_body_entered"]
+[connection signal="animation_finished" from="Boss_Character/AnimationPlayer" to="FoodProcessor" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="Close_Doors" to="FoodProcessor" method="_on_Close_Doors_body_entered"]
+[connection signal="body_entered" from="Close_Doors" to="Boss_Character" method="_on_Close_Doors_body_entered"]
 
 [editable path="FoodProcessor"]
+
+[editable path="Boss_Character"]
