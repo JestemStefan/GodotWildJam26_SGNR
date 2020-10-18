@@ -19,6 +19,9 @@ var total_percentages:int = 0
 var rng = RandomNumberGenerator.new()
 
 func start_wave():
+	if !self.visible:
+		return
+
 	if (wave_index < number_of_waves):
 		for c in get_children():
 			if c is SpawnPoint:

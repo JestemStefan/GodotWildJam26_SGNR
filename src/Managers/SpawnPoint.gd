@@ -37,10 +37,6 @@ func start_wave(n: int):
 	enemies_left = get_capacity()
 
 
-func _ready():
-	start_wave(0)
-
-
 func is_depleted() -> bool:
 	return enemies_left <= 0
 
