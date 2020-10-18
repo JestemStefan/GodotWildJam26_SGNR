@@ -9,6 +9,8 @@ onready var blast_area = preload("res://models/CollisionShapes/Blast_area.tscn")
 
 onready var boss: KinematicBody = get_tree().get_nodes_in_group("boss")[0]
 
+signal DoorClosing
+signal DoorOpening
 
 var closed: bool = false
 
@@ -37,8 +39,10 @@ func damage_part(name):
 func open_close():
 	if closed:
 		door_animplayer.play("OpenDoors")
+		emit_signal("DoorOpening")
 	else:
 		door_animplayer.play("CloseDoors")
+		emit_signal("DoorClosing")
 	closed = !closed
 
 
