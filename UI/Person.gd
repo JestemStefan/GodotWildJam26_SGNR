@@ -9,7 +9,7 @@ onready var links = $Columns/Links
 
 func set_person(name, person):
 	user_name.text = name
-	print_debug(person)
+
 	var credits = person["credits"]
 	for c in credits:
 		var l:Label = Label.new()
