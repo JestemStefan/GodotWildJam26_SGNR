@@ -23,9 +23,19 @@ signal DoorOpening
 var closed: bool = false
 
 func _ready():
-	$Spinning.play("Idle")
 	Boss_HP.set_value(blender_HP + S_blender_HP + bowl_HP)
 
+func _physics_process(delta):
+	var speed = delta*4
+	if blender != null:
+		blender.get_node("FP_Blender_Liquid").rotate_y(speed)
+		
+	if small_blender != null:
+		small_blender.get_node("FP_Small_Blender_Liquid").rotate_y(-speed)
+		
+	if bowl != null:
+		$Knob.rotate_z(speed)
+		
 func damage_part(name):
 	
 # This is crap and doesn't work :/
@@ -59,9 +69,6 @@ func damage_part(name):
 
 		get_parent().get_node("Gameover").start(5)
 
-	
-		
-	
 func open_close():
 	if closed:
 		door_animplayer.play("OpenDoors")
@@ -71,12 +78,10 @@ func open_close():
 		emit_signal("DoorClosing")
 	closed = !closed
 
-
 func _on_AnimationPlayer_animation_finished(anim_name):
 	match anim_name:
 		"Wave":
 			open_close()
-
 
 
 func _on_Explosions_timer_timeout():

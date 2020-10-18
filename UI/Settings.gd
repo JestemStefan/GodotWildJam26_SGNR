@@ -21,7 +21,9 @@ func _ready():
 	has_flyers.pressed = globals.get_value("game/enemies/flyers/enabled")
 	num_flyers.value = globals.get_value("game/enemies/flyers/number")
 
-
+func _input(event):
+	if Input.is_action_pressed("ui_cancel"):
+		Globals.load_new_scene("res://levels/Main.tscn")
 
 func _on_Ambient_Sound_toggled(button_pressed):
 	globals.set_value("game/sound/ambient", button_pressed)

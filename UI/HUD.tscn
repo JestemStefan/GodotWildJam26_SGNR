@@ -1,17 +1,19 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/reticle.png" type="Texture" id=2]
 [ext_resource path="res://assets/2D/Boss_HP/HP_Fempty.png" type="Texture" id=3]
 [ext_resource path="res://assets/2D/Boss_HP/HP_Over.png" type="Texture" id=4]
 [ext_resource path="res://assets/2D/Boss_HP/HP_Progress.png" type="Texture" id=5]
+[ext_resource path="res://assets/2D/HP_Under.png" type="Texture" id=6]
+[ext_resource path="res://assets/2D/HP_Top.png" type="Texture" id=7]
+[ext_resource path="res://assets/2D/HP_Progress.png" type="Texture" id=8]
+[ext_resource path="res://assets/2D/Ammo_Under.png" type="Texture" id=9]
+[ext_resource path="res://assets/2D/Ammo_Top.png" type="Texture" id=10]
+[ext_resource path="res://assets/2D/Ammo_Progress.png" type="Texture" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0, 0, 0, 0.537255 )
-corner_radius_top_right = 97
 
 [node name="HUD" type="Control"]
 margin_right = 1025.0
@@ -51,24 +53,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Border" type="Panel" parent="Status"]
-margin_right = 379.0
-margin_bottom = 163.0
-custom_styles/panel = SubResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="HP" type="TextureProgress" parent="Status"]
+margin_left = 20.0
+margin_right = 1220.0
+margin_bottom = 256.0
+rect_scale = Vector2( 0.3, 0.3 )
+value = 50.0
+texture_under = ExtResource( 6 )
+texture_over = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
 
-[node name="Label" type="Label" parent="Status"]
-margin_left = 18.0
-margin_top = 32.0
-margin_right = 333.0
-margin_bottom = 144.0
-text = "Health: 100
-Bullets: 3/10"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Ammo" type="TextureProgress" parent="Status"]
+margin_left = 20.0
+margin_top = 73.622
+margin_right = 1220.0
+margin_bottom = 329.622
+rect_scale = Vector2( 0.3, 0.3 )
+value = 50.0
+texture_under = ExtResource( 9 )
+texture_over = ExtResource( 10 )
+texture_progress = ExtResource( 11 )
 
 [node name="BossHP" type="Control" parent="."]
 margin_left = 212.173

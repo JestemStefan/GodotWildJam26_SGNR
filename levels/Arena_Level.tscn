@@ -277,22 +277,27 @@ material/0 = null
 [node name="SpawnPointManager" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.945948, 1.57241, -39.3722 )
 visible = false
-number_of_waves = 1
+number_of_waves = 10
 
 [node name="Muffins One" parent="SpawnPointManager" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.17302, 0.0999999, -2.16008 )
 percentage = 60
+capacity = [ 200, 200, 200, 200, 200, 200, 200, 200, 200, 200 ]
+wave_size = [ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 ]
 enemies = [ ExtResource( 8 ) ]
 
 [node name="Muffins Two" parent="SpawnPointManager" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59312, 0.256559, -1.30457 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25819, 0.256559, -1.30457 )
 percentage = 40
+capacity = [ 200, 200, 200, 200, 200, 200, 200, 200, 200, 200 ]
+wave_size = [ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 ]
 enemies = [ ExtResource( 8 ) ]
 
 [node name="Flyers" parent="SpawnPointManager" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17612, 9.20463, -3.09511 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1115, 14.9464, -7.2651 )
 percentage = 10
-capacity = [ 10 ]
+capacity = [ 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 ]
+wave_size = [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
 enemies = [ ExtResource( 9 ) ]
 
 [node name="PlayerRespawnPoint" type="Spatial" parent="."]

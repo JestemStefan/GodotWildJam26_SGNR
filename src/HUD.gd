@@ -1,19 +1,19 @@
 extends Control
 
 var health: int = 100;
-var ammo: int = 4;
+var ammo: int = 10;
 
-var status: Label;
+onready var status_HP: TextureProgress = $Status/HP
+onready var status_Ammo: TextureProgress = $Status/Ammo
+
+
 
 func set_heath(hp_value):
 	health = hp_value
+	status_HP.set_value(health)
 	
 func set_ammo(ammo_value):
 	ammo = ammo_value
+	status_Ammo.set_value(ammo)
 
-func _ready():
-	status = $Status/Label
-
-func _process(_delta):
-	status.text = "Health: " + str(health) + "\n" + "Ammo: " + str(ammo) + " / " + "10";
 
