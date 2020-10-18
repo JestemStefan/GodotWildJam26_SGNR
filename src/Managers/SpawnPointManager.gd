@@ -26,6 +26,16 @@ func start_wave():
 				s.start_wave(wave_index)
 		wave_index += 1
 
+func is_depleted() -> bool:
+	var result:bool = true
+
+	for c in spawn_points:
+		if c is SpawnPoint:
+			var s:SpawnPoint = c
+			result = result && s.is_depleted()
+
+	return result
+
 
 func _ready():
 	rng.randomize()
