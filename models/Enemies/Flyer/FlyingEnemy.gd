@@ -49,11 +49,6 @@ func _physics_process(delta):
 func _on_Flap_timeout():
 	flap = max_flap
 
-# NOTE: copied from Enemy_class.gd
-func take_damage(damage_amount):
-	health -= damage_amount
 
-	if health > 0:
-		print(health)
-	else:
-		queue_free()
+func take_damage(damage_amount):
+	queue_free()
