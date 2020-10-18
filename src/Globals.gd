@@ -72,7 +72,7 @@ var respawn_points = null
 var audio_clips = {
 	"ambient": preload("res://assets/audio/Breadventure_sketch_1.wav"),
 	"rifle_shot": preload("res://assets/audio/Gun_sfx_3.wav"),
-	"alien": preload("res://assets/audio/test-alien.wav"),
+	"flying_pizza": preload("res://assets/audio/Flying_Pizza.wav"),
 
 	"ammunition_pickup": preload("res://assets/audio/Ammunition_Pickup.wav"),
 	"concrete_boots_walking": preload("res://assets/audio/Concrete_Boots_Walking.wav"),

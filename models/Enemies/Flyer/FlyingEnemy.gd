@@ -4,6 +4,8 @@ var speed = 10
 var health = 100
 
 export var max_flap:int = 10
+export var sting_damage: int = 1
+
 var flap:int = 0
 
 onready var globals = get_node("/root/Globals")
@@ -14,7 +16,7 @@ onready var audio_player_3d = $AudioPlayer3D
 var towards: bool = true
 
 func _ready():
-	globals.play_sound('alien', false, audio_player_3d)
+	globals.play_sound('flying_pizza', true, audio_player_3d)
 
 
 func _physics_process(delta):
@@ -28,7 +30,8 @@ func _physics_process(delta):
 		towards = true
 
 	if distance < 3:
-		player.take_damage(1)
+		if towards:
+			player.take_damage(sting_damage)
 		towards = false
 
 	var dir = direction.normalized() * speed
