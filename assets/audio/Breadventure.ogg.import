@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Breadventure.ogg-c5410fb289dd6756267969ec31707aef.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Breadventure.ogg"
+dest_files=[ "res://.import/Breadventure.ogg-c5410fb289dd6756267969ec31707aef.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
