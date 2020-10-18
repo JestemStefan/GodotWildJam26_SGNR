@@ -60,7 +60,7 @@ func spawn_enemies():
 
 		enemies.shuffle()
 		en = enemies[0]
-		var enemy = en.instance(PackedScene.GEN_EDIT_STATE_INSTANCE)
+		var enemy = en.instance()
 		
 		nav.add_child(enemy)
 		
