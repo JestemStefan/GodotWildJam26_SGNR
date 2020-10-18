@@ -95,10 +95,11 @@ func process_input(delta):
 	# ----------------------------------
 
 	if Input.is_action_just_pressed("ui_fire") and canFire:
-		canFire = false
-		lose_ammo(1)
-		process_raycast(delta)
-		change_animation("Fire")
+		if ammo > 0:
+			canFire = false
+			lose_ammo(1)
+			process_raycast(delta)
+			change_animation("Fire")
 	
 
 
@@ -144,11 +145,8 @@ func _input(event):
 		rotation_helper.rotation_degrees = camera_rot
 
 func process_raycast(_delta):
-
 	if ray_cast.is_colliding():
 		var collider = ray_cast.get_collider()
-		
-		print(collider.get_name())
 		# Check if target can take damage
 		if collider.has_method("take_damage"):
 			collider.take_damage(40)
@@ -179,8 +177,8 @@ func heal(hp_amount):
 func gain_ammo(ammo_amount):
 	ammo += ammo_amount
 	
-	if ammo > 10:
-		ammo = 10
+	if ammo > 200:
+		ammo = 20
 	
 	HUD.set_ammo(ammo)
 
