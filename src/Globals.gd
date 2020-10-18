@@ -93,6 +93,8 @@ var audio_clips = {
 	"flying_pizza": preload("res://assets/audio/Flying_Pizza.wav"),
 	"cookie_crumbles": preload("res://assets/audio/The_Cookie_Crumbles.ogg"),
 
+	"cupcake_beep_sizzle": preload("res://assets/audio/Cupcake_-_Beep_Sizzle_Rumble_Short_-_2_seconds.wav"),
+
 	"ammunition_pickup": preload("res://assets/audio/Ammunition_Pickup.wav"),
 	"concrete_boots_walking": preload("res://assets/audio/Concrete_Boots_Walking.wav"),
 	"concrete_boots_running": preload("res://assets/audio/Concrete_Boots_Running.wav"),

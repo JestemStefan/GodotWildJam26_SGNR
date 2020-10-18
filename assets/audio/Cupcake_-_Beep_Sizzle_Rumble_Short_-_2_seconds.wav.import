@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cupcake_-_Beep_Sizzle_Rumble_Short_-_2_seconds.wav-03c8f968f113e4ec52d636f8ae10de52.sample"
+
+[deps]
+
+source_file="res://assets/audio/Cupcake_-_Beep_Sizzle_Rumble_Short_-_2_seconds.wav"
+dest_files=[ "res://.import/Cupcake_-_Beep_Sizzle_Rumble_Short_-_2_seconds.wav-03c8f968f113e4ec52d636f8ae10de52.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
