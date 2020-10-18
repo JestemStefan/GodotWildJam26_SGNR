@@ -91,6 +91,7 @@ var audio_clips = {
 	"ambient": preload("res://assets/audio/Breadventure_sketch_1.wav"),
 	"rifle_shot": preload("res://assets/audio/Gun_sfx_3.wav"),
 	"flying_pizza": preload("res://assets/audio/Flying_Pizza.wav"),
+	"cookie_crumbles": preload("res://assets/audio/The_Cookie_Crumbles.ogg"),
 
 	"ammunition_pickup": preload("res://assets/audio/Ammunition_Pickup.wav"),
 	"concrete_boots_walking": preload("res://assets/audio/Concrete_Boots_Walking.wav"),

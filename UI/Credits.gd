@@ -9,7 +9,7 @@ const PERSON = preload("res://UI/Person.tscn")
 var credits
 
 func _ready():
-	globals.play_sound("ambient")
+	globals.play_sound("cookie_crumbles")
 
 	credits = globals.get_value('credits')
 	var ps = credits["names"]
