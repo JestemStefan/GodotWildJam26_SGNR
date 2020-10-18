@@ -33,7 +33,12 @@ func _on_FoodProcessor_DoorOpening():
 
 
 func _on_DoorTimer_timeout():
-	if open_door:
-		start_wave()
-	else:
-		pause_wave()
+	if food_processor != null:
+		if open_door:
+			start_wave()
+		else:
+			pause_wave()
+
+
+func _on_Gameover_timeout():
+	Globals.load_new_scene("UI/Credits.tscn")
