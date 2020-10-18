@@ -63,6 +63,10 @@ func _ready():
 		print_debug("Imbalanced number of waves: check Spawn Manager and Points")
 		get_tree().quit()
 
+	if spawn_points_number_of_waves != number_of_waves:
+		print_debug("Numbe of waves mismatch between Manager and Points")
+		get_tree().quit()
+
 	start_wave()
 
 func _on_Timer_timeout():
